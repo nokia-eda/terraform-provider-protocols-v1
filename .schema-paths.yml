@@ -1,0 +1,694 @@
+app_group:
+  - read:
+      path: /apps/protocols.eda.nokia.com
+      method: GET
+
+patch:
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
+      method: PATCH
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes/{name}
+      method: PATCH
+
+resource_history:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}/_revs
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes/{name}/_revs
+      method: GET
+
+resource_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1
+      method: GET
+
+resource_topology:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}/_topology
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes/{name}/_topology
+      method: GET
+
+status:
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
+      method: DELETE
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes/{name}
+      method: DELETE
+
+ui_result:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/_ui/{pathname}
+      method: GET
+
+workflow_get_inputs_resp_elem:
+  - read:
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss/{name}/_input
+      method: GET
+
+workflow_input_data:
+  - update:
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss/{name}/_input
+      method: PUT
+
+com.nokia.eda.protocols.v1.aggregate_route:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.aggregate_route_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/aggregateroutes
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes
+      method: DELETE
+
+com.nokia.eda.protocols.v1.aggregate_route_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/aggregateroutes/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.bgp_group:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.bgp_group_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/bgpgroups
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups
+      method: DELETE
+
+com.nokia.eda.protocols.v1.bgp_group_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgpgroups/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.bgp_peer:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.bgp_peer_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/bgppeers
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers
+      method: DELETE
+
+com.nokia.eda.protocols.v1.bgp_peer_state:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.bgp_peer_state_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/bgppeerstates
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates
+      method: DELETE
+
+com.nokia.eda.protocols.v1.bgp_peer_state_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.bgp_peer_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.check_default_bgp_peers:
+  - create:
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss
+      method: POST
+  - read:
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss/{name}
+      method: GET
+
+com.nokia.eda.protocols.v1.check_default_bgp_peers_list:
+  - read:
+      path: /workflows/v1/protocols.eda.nokia.com/v1/checkdefaultbgppeerss
+      method: GET
+  - read:
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss
+      method: GET
+
+com.nokia.eda.protocols.v1.default_aggregate_route:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.default_aggregate_route_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/defaultaggregateroutes
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes
+      method: DELETE
+
+com.nokia.eda.protocols.v1.default_aggregate_route_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultaggregateroutes/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.default_bgp_group:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.default_bgp_group_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/defaultbgpgroups
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups
+      method: DELETE
+
+com.nokia.eda.protocols.v1.default_bgp_group_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgpgroups/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.default_bgp_peer:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.default_bgp_peer_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/defaultbgppeers
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers
+      method: DELETE
+
+com.nokia.eda.protocols.v1.default_bgp_peer_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.default_route_reflector:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.default_route_reflector_client:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.default_route_reflector_client_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/defaultroutereflectorclients
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients
+      method: DELETE
+
+com.nokia.eda.protocols.v1.default_route_reflector_client_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectorclients/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.default_route_reflector_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/defaultroutereflectors
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors
+      method: DELETE
+
+com.nokia.eda.protocols.v1.default_route_reflector_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.default_static_route:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.default_static_route_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/defaultstaticroutes
+      method: GET
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes
+      method: DELETE
+
+com.nokia.eda.protocols.v1.default_static_route_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.route_reflector_client:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.route_reflector_client_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients
+      method: DELETE
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/routereflectorclients
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector_client_state:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.route_reflector_client_state_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates
+      method: DELETE
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/routereflectorclientstates
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector_client_state_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector_client_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors
+      method: DELETE
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/routereflectors
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector_state:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.route_reflector_state_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates
+      method: DELETE
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/routereflectorstates
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector_state_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.route_reflector_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors/_deleted
+      method: GET
+
+com.nokia.eda.protocols.v1.static_route:
+  - create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes
+      method: POST
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes/{name}
+      method: GET
+  - update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes/{name}
+      method: PUT
+
+com.nokia.eda.protocols.v1.static_route_list:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes
+      method: GET
+  - delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes
+      method: DELETE
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/staticroutes
+      method: GET
+
+com.nokia.eda.protocols.v1.static_route_deleted_resources:
+  - read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/staticroutes/_deleted
+      method: GET
+
+totalPaths: 100
+totalSchemas: 111
+usedSchemas: 56
+unusedSchemas: 55
+unusedSchemaList:
+  - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
+  - ErrorResponse
+  - K8SPatchOp
+  - OverlayState
+  - Resource
+  - ResourceHistoryEntry
+  - StatusDetails
+  - TopoAttrMetadata
+  - TopoElemMetadata
+  - TopoLinkEndpoint
+  - TopoNodeGrouping
+  - TopoOverlayEndpoint
+  - TopoOverlayEndpointState
+  - TopoOverlayLink
+  - TopoOverlayLinkState
+  - TopoOverlayNode
+  - TopoOverlayNodeState
+  - TopoSchema
+  - Topology
+  - WorkflowId
+  - WorkflowIdentifier
+  - WorkflowInputDataElem
+  - com.nokia.eda.protocols.v1.AggregateRoute_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.AggregateRoute_metadata
+  - com.nokia.eda.protocols.v1.BGPGroup_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.BGPGroup_metadata
+  - com.nokia.eda.protocols.v1.BGPPeerState_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.BGPPeerState_metadata
+  - com.nokia.eda.protocols.v1.BGPPeer_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.BGPPeer_metadata
+  - com.nokia.eda.protocols.v1.CheckDefaultBgpPeers_metadata
+  - com.nokia.eda.protocols.v1.DefaultAggregateRoute_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.DefaultAggregateRoute_metadata
+  - com.nokia.eda.protocols.v1.DefaultBGPGroup_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.DefaultBGPGroup_metadata
+  - com.nokia.eda.protocols.v1.DefaultBGPPeer_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.DefaultBGPPeer_metadata
+  - com.nokia.eda.protocols.v1.DefaultRouteReflectorClient_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.DefaultRouteReflectorClient_metadata
+  - com.nokia.eda.protocols.v1.DefaultRouteReflector_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.DefaultRouteReflector_metadata
+  - com.nokia.eda.protocols.v1.DefaultStaticRoute_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.DefaultStaticRoute_metadata
+  - com.nokia.eda.protocols.v1.RouteReflectorClientState_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.RouteReflectorClientState_metadata
+  - com.nokia.eda.protocols.v1.RouteReflectorClient_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.RouteReflectorClient_metadata
+  - com.nokia.eda.protocols.v1.RouteReflectorState_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.RouteReflectorState_metadata
+  - com.nokia.eda.protocols.v1.RouteReflector_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.RouteReflector_metadata
+  - com.nokia.eda.protocols.v1.StaticRoute_DeletedResourceEntry
+  - com.nokia.eda.protocols.v1.StaticRoute_metadata
