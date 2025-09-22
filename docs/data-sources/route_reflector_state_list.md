@@ -23,7 +23,7 @@ description: |-
 
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
-- `labelselector` (String) a label selector string to filter the results based on CR labels
+- `label_selector` (String) a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -51,7 +51,7 @@ Read-Only:
 Optional:
 
 - `default_route_reflector` (Boolean) Denotes if the route reflector is a DefaultRouteReflector or RouteReflector
-- `route_reflector_bgppeers` (List of String) A list of BGPPeers configured on the route reflector to peer with clients
+- `route_reflector_bgp_peers` (List of String) A list of BGPPeers configured on the route reflector to peer with clients
 
 
 <a id="nestedatt--items--metadata"></a>

@@ -23,7 +23,7 @@ description: |-
 
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
-- `labelselector` (String) a label selector string to filter the results based on CR labels
+- `label_selector` (String) a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -80,12 +80,12 @@ Optional:
 
 Optional:
 
-- `bfd_1` (Attributes) Enables BFD to the next-hops in the group. This overrides the configuration at the group. (see [below for nested schema](#nestedatt--items--spec--nexthop_group--nexthops--bfd_1))
+- `bfd` (Attributes) Enables BFD to the next-hops in the group. This overrides the configuration at the group. (see [below for nested schema](#nestedatt--items--spec--nexthop_group--nexthops--bfd))
 - `ip_prefix` (String) Address to use.
 - `resolve` (Boolean) If set to true the next-hops can be destinations which are resolved in the route table. This overrides the configuration at the group.
 
-<a id="nestedatt--items--spec--nexthop_group--nexthops--bfd_1"></a>
-### Nested Schema for `items.spec.nexthop_group.nexthops.bfd_1`
+<a id="nestedatt--items--spec--nexthop_group--nexthops--bfd"></a>
+### Nested Schema for `items.spec.nexthop_group.nexthops.bfd`
 
 Optional:
 

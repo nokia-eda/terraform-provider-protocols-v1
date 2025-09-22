@@ -87,7 +87,7 @@ func RouteReflectorClientStateResourceSchema(ctx context.Context) schema.Schema 
 						Description:         "Denotes if the route reflector client is a DefaultRouteReflectorClient or RouteReflectorClient",
 						MarkdownDescription: "Denotes if the route reflector client is a DefaultRouteReflectorClient or RouteReflectorClient",
 					},
-					"route_reflector_client_bgppeers": schema.ListAttribute{
+					"route_reflector_client_bgp_peers": schema.ListAttribute{
 						ElementType:         types.StringType,
 						Optional:            true,
 						Description:         "A list of BGPPeers configured on the route reflector client to peer with route reflectors",
@@ -723,22 +723,22 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`default_route_reflector_client expected to be basetypes.BoolValue, was: %T`, defaultRouteReflectorClientAttribute))
 	}
 
-	routeReflectorClientBgppeersAttribute, ok := attributes["route_reflector_client_bgppeers"]
+	routeReflectorClientBgpPeersAttribute, ok := attributes["route_reflector_client_bgp_peers"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`route_reflector_client_bgppeers is missing from object`)
+			`route_reflector_client_bgp_peers is missing from object`)
 
 		return nil, diags
 	}
 
-	routeReflectorClientBgppeersVal, ok := routeReflectorClientBgppeersAttribute.(basetypes.ListValue)
+	routeReflectorClientBgpPeersVal, ok := routeReflectorClientBgpPeersAttribute.(basetypes.ListValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`route_reflector_client_bgppeers expected to be basetypes.ListValue, was: %T`, routeReflectorClientBgppeersAttribute))
+			fmt.Sprintf(`route_reflector_client_bgp_peers expected to be basetypes.ListValue, was: %T`, routeReflectorClientBgpPeersAttribute))
 	}
 
 	if diags.HasError() {
@@ -747,7 +747,7 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 
 	return SpecValue{
 		DefaultRouteReflectorClient:  defaultRouteReflectorClientVal,
-		RouteReflectorClientBgppeers: routeReflectorClientBgppeersVal,
+		RouteReflectorClientBgpPeers: routeReflectorClientBgpPeersVal,
 		state:                        attr.ValueStateKnown,
 	}, diags
 }
@@ -833,22 +833,22 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`default_route_reflector_client expected to be basetypes.BoolValue, was: %T`, defaultRouteReflectorClientAttribute))
 	}
 
-	routeReflectorClientBgppeersAttribute, ok := attributes["route_reflector_client_bgppeers"]
+	routeReflectorClientBgpPeersAttribute, ok := attributes["route_reflector_client_bgp_peers"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`route_reflector_client_bgppeers is missing from object`)
+			`route_reflector_client_bgp_peers is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	routeReflectorClientBgppeersVal, ok := routeReflectorClientBgppeersAttribute.(basetypes.ListValue)
+	routeReflectorClientBgpPeersVal, ok := routeReflectorClientBgpPeersAttribute.(basetypes.ListValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`route_reflector_client_bgppeers expected to be basetypes.ListValue, was: %T`, routeReflectorClientBgppeersAttribute))
+			fmt.Sprintf(`route_reflector_client_bgp_peers expected to be basetypes.ListValue, was: %T`, routeReflectorClientBgpPeersAttribute))
 	}
 
 	if diags.HasError() {
@@ -857,7 +857,7 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 
 	return SpecValue{
 		DefaultRouteReflectorClient:  defaultRouteReflectorClientVal,
-		RouteReflectorClientBgppeers: routeReflectorClientBgppeersVal,
+		RouteReflectorClientBgpPeers: routeReflectorClientBgpPeersVal,
 		state:                        attr.ValueStateKnown,
 	}, diags
 }
@@ -931,7 +931,7 @@ var _ basetypes.ObjectValuable = SpecValue{}
 
 type SpecValue struct {
 	DefaultRouteReflectorClient  basetypes.BoolValue `tfsdk:"default_route_reflector_client"`
-	RouteReflectorClientBgppeers basetypes.ListValue `tfsdk:"route_reflector_client_bgppeers"`
+	RouteReflectorClientBgpPeers basetypes.ListValue `tfsdk:"route_reflector_client_bgp_peers"`
 	state                        attr.ValueState
 }
 
@@ -942,7 +942,7 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 	var err error
 
 	attrTypes["default_route_reflector_client"] = basetypes.BoolType{}.TerraformType(ctx)
-	attrTypes["route_reflector_client_bgppeers"] = basetypes.ListType{
+	attrTypes["route_reflector_client_bgp_peers"] = basetypes.ListType{
 		ElemType: types.StringType,
 	}.TerraformType(ctx)
 
@@ -960,13 +960,13 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["default_route_reflector_client"] = val
 
-		val, err = v.RouteReflectorClientBgppeers.ToTerraformValue(ctx)
+		val, err = v.RouteReflectorClientBgpPeers.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["route_reflector_client_bgppeers"] = val
+		vals["route_reflector_client_bgp_peers"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -997,22 +997,22 @@ func (v SpecValue) String() string {
 func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
-	var routeReflectorClientBgppeersVal basetypes.ListValue
+	var routeReflectorClientBgpPeersVal basetypes.ListValue
 	switch {
-	case v.RouteReflectorClientBgppeers.IsUnknown():
-		routeReflectorClientBgppeersVal = types.ListUnknown(types.StringType)
-	case v.RouteReflectorClientBgppeers.IsNull():
-		routeReflectorClientBgppeersVal = types.ListNull(types.StringType)
+	case v.RouteReflectorClientBgpPeers.IsUnknown():
+		routeReflectorClientBgpPeersVal = types.ListUnknown(types.StringType)
+	case v.RouteReflectorClientBgpPeers.IsNull():
+		routeReflectorClientBgpPeersVal = types.ListNull(types.StringType)
 	default:
 		var d diag.Diagnostics
-		routeReflectorClientBgppeersVal, d = types.ListValue(types.StringType, v.RouteReflectorClientBgppeers.Elements())
+		routeReflectorClientBgpPeersVal, d = types.ListValue(types.StringType, v.RouteReflectorClientBgpPeers.Elements())
 		diags.Append(d...)
 	}
 
 	if diags.HasError() {
 		return types.ObjectUnknown(map[string]attr.Type{
 			"default_route_reflector_client": basetypes.BoolType{},
-			"route_reflector_client_bgppeers": basetypes.ListType{
+			"route_reflector_client_bgp_peers": basetypes.ListType{
 				ElemType: types.StringType,
 			},
 		}), diags
@@ -1020,7 +1020,7 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 
 	attributeTypes := map[string]attr.Type{
 		"default_route_reflector_client": basetypes.BoolType{},
-		"route_reflector_client_bgppeers": basetypes.ListType{
+		"route_reflector_client_bgp_peers": basetypes.ListType{
 			ElemType: types.StringType,
 		},
 	}
@@ -1036,8 +1036,8 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"default_route_reflector_client":  v.DefaultRouteReflectorClient,
-			"route_reflector_client_bgppeers": routeReflectorClientBgppeersVal,
+			"default_route_reflector_client":   v.DefaultRouteReflectorClient,
+			"route_reflector_client_bgp_peers": routeReflectorClientBgpPeersVal,
 		})
 
 	return objVal, diags
@@ -1062,7 +1062,7 @@ func (v SpecValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.RouteReflectorClientBgppeers.Equal(other.RouteReflectorClientBgppeers) {
+	if !v.RouteReflectorClientBgpPeers.Equal(other.RouteReflectorClientBgpPeers) {
 		return false
 	}
 
@@ -1080,7 +1080,7 @@ func (v SpecValue) Type(ctx context.Context) attr.Type {
 func (v SpecValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
 		"default_route_reflector_client": basetypes.BoolType{},
-		"route_reflector_client_bgppeers": basetypes.ListType{
+		"route_reflector_client_bgp_peers": basetypes.ListType{
 			ElemType: types.StringType,
 		},
 	}

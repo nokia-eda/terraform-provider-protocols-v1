@@ -113,7 +113,7 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 										MarkdownDescription: "If set to true then only delete or replace private AS numbers that appear before the first occurrence of a non-private ASN in the sequence of most recent ASNs in the AS path.",
 										Default:             booldefault.StaticBool(false),
 									},
-									"remove_private_asmode": schema.StringAttribute{
+									"remove_private_as_mode": schema.StringAttribute{
 										Optional:            true,
 										Computed:            true,
 										Description:         "The method by which private AS numbers are removed from the advertised AS_PATH attribute.",
@@ -193,9 +193,9 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 							),
 						},
 					},
-					"ipv4unicast": schema.SingleNestedAttribute{
+					"ipv4_unicast": schema.SingleNestedAttribute{
 						Attributes: map[string]schema.Attribute{
-							"advertise_ipv6next_hops": schema.BoolAttribute{
+							"advertise_ipv6_next_hops": schema.BoolAttribute{
 								Optional:            true,
 								Description:         "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers.",
 								MarkdownDescription: "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers.",
@@ -277,31 +277,31 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 								},
 								Optional: true,
 							},
-							"receive_ipv6next_hops": schema.BoolAttribute{
+							"receive_ipv6_next_hops": schema.BoolAttribute{
 								Optional:            true,
 								Description:         "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops.",
 								MarkdownDescription: "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops.",
 							},
 						},
-						CustomType: Ipv4unicastType{
+						CustomType: Ipv4UnicastType{
 							ObjectType: types.ObjectType{
-								AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+								AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 							},
 						},
 						Optional:            true,
 						Description:         "Parameters relating to the IPv4 unicast AFI/SAFI.",
 						MarkdownDescription: "Parameters relating to the IPv4 unicast AFI/SAFI.",
 					},
-					"ipv6unicast": schema.SingleNestedAttribute{
+					"ipv6_unicast": schema.SingleNestedAttribute{
 						Attributes: map[string]schema.Attribute{
 							"enabled": schema.BoolAttribute{
 								Optional:            true,
 								Description:         "Enables the IPv6 unicast AFISAFI",
 								MarkdownDescription: "Enables the IPv6 unicast AFISAFI",
 							},
-							"prefix_limit_1": schema.SingleNestedAttribute{
+							"prefix_limit": schema.SingleNestedAttribute{
 								Attributes: map[string]schema.Attribute{
-									"prefix_limit_accepted_1": schema.SingleNestedAttribute{
+									"prefix_limit_accepted": schema.SingleNestedAttribute{
 										Attributes: map[string]schema.Attribute{
 											"log_only": schema.BoolAttribute{
 												Optional:            true,
@@ -332,7 +332,7 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 										},
 										Optional: true,
 									},
-									"prefix_limit_received_1": schema.SingleNestedAttribute{
+									"prefix_limit_received": schema.SingleNestedAttribute{
 										Attributes: map[string]schema.Attribute{
 											"log_only": schema.BoolAttribute{
 												Optional:            true,
@@ -372,9 +372,9 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 								Optional: true,
 							},
 						},
-						CustomType: Ipv6unicastType{
+						CustomType: Ipv6UnicastType{
 							ObjectType: types.ObjectType{
-								AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+								AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 							},
 						},
 						Optional:            true,
@@ -386,9 +386,9 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 						Description:         "Reference to a Keychain resource that will be used for authentication with the BGP peer.",
 						MarkdownDescription: "Reference to a Keychain resource that will be used for authentication with the BGP peer.",
 					},
-					"l2vpnevpn": schema.SingleNestedAttribute{
+					"l2_vpn_evpn": schema.SingleNestedAttribute{
 						Attributes: map[string]schema.Attribute{
-							"advertise_ipv6next_hops": schema.BoolAttribute{
+							"advertise_ipv6_next_hops": schema.BoolAttribute{
 								Optional:            true,
 								Description:         "Enables advertisement of EVPN routes with IPv6 next-hops to peers.",
 								MarkdownDescription: "Enables advertisement of EVPN routes with IPv6 next-hops to peers.",
@@ -398,9 +398,9 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 								Description:         "Enables the L2VPN EVPN AFISAFI.",
 								MarkdownDescription: "Enables the L2VPN EVPN AFISAFI.",
 							},
-							"prefix_limit_2": schema.SingleNestedAttribute{
+							"prefix_limit": schema.SingleNestedAttribute{
 								Attributes: map[string]schema.Attribute{
-									"prefix_limit_accepted_2": schema.SingleNestedAttribute{
+									"prefix_limit_accepted": schema.SingleNestedAttribute{
 										Attributes: map[string]schema.Attribute{
 											"log_only": schema.BoolAttribute{
 												Optional:            true,
@@ -431,7 +431,7 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 										},
 										Optional: true,
 									},
-									"prefix_limit_received_2": schema.SingleNestedAttribute{
+									"prefix_limit_received": schema.SingleNestedAttribute{
 										Attributes: map[string]schema.Attribute{
 											"log_only": schema.BoolAttribute{
 												Optional:            true,
@@ -471,9 +471,9 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 								Optional: true,
 							},
 						},
-						CustomType: L2vpnevpnType{
+						CustomType: L2VpnEvpnType{
 							ObjectType: types.ObjectType{
-								AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+								AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 							},
 						},
 						Optional:            true,
@@ -649,13 +649,13 @@ func DefaultRouteReflectorClientResourceSchema(ctx context.Context) schema.Schem
 						Description:         "The time when the state of the resource last changed.",
 						MarkdownDescription: "The time when the state of the resource last changed.",
 					},
-					"num_route_reflector_client_bgppeers": schema.Int64Attribute{
+					"num_route_reflector_client_bgp_peers": schema.Int64Attribute{
 						Optional:            true,
 						Computed:            true,
 						Description:         "Total number of configured route reflector peers on the route reflector client.",
 						MarkdownDescription: "Total number of configured route reflector peers on the route reflector client.",
 					},
-					"num_route_reflector_client_bgppeers_oper_down": schema.Int64Attribute{
+					"num_route_reflector_client_bgp_peers_oper_down": schema.Int64Attribute{
 						Optional:            true,
 						Computed:            true,
 						Description:         "Total number of configured route reflector peers on the route reflector client that are operationally down.",
@@ -1419,40 +1419,40 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`interface_kind expected to be basetypes.StringValue, was: %T`, interfaceKindAttribute))
 	}
 
-	ipv4unicastAttribute, ok := attributes["ipv4unicast"]
+	ipv4UnicastAttribute, ok := attributes["ipv4_unicast"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv4unicast is missing from object`)
+			`ipv4_unicast is missing from object`)
 
 		return nil, diags
 	}
 
-	ipv4unicastVal, ok := ipv4unicastAttribute.(basetypes.ObjectValue)
+	ipv4UnicastVal, ok := ipv4UnicastAttribute.(basetypes.ObjectValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv4unicast expected to be basetypes.ObjectValue, was: %T`, ipv4unicastAttribute))
+			fmt.Sprintf(`ipv4_unicast expected to be basetypes.ObjectValue, was: %T`, ipv4UnicastAttribute))
 	}
 
-	ipv6unicastAttribute, ok := attributes["ipv6unicast"]
+	ipv6UnicastAttribute, ok := attributes["ipv6_unicast"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv6unicast is missing from object`)
+			`ipv6_unicast is missing from object`)
 
 		return nil, diags
 	}
 
-	ipv6unicastVal, ok := ipv6unicastAttribute.(basetypes.ObjectValue)
+	ipv6UnicastVal, ok := ipv6UnicastAttribute.(basetypes.ObjectValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv6unicast expected to be basetypes.ObjectValue, was: %T`, ipv6unicastAttribute))
+			fmt.Sprintf(`ipv6_unicast expected to be basetypes.ObjectValue, was: %T`, ipv6UnicastAttribute))
 	}
 
 	keychainAttribute, ok := attributes["keychain"]
@@ -1473,22 +1473,22 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 			fmt.Sprintf(`keychain expected to be basetypes.StringValue, was: %T`, keychainAttribute))
 	}
 
-	l2vpnevpnAttribute, ok := attributes["l2vpnevpn"]
+	l2VpnEvpnAttribute, ok := attributes["l2_vpn_evpn"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`l2vpnevpn is missing from object`)
+			`l2_vpn_evpn is missing from object`)
 
 		return nil, diags
 	}
 
-	l2vpnevpnVal, ok := l2vpnevpnAttribute.(basetypes.ObjectValue)
+	l2VpnEvpnVal, ok := l2VpnEvpnAttribute.(basetypes.ObjectValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`l2vpnevpn expected to be basetypes.ObjectValue, was: %T`, l2vpnevpnAttribute))
+			fmt.Sprintf(`l2_vpn_evpn expected to be basetypes.ObjectValue, was: %T`, l2VpnEvpnAttribute))
 	}
 
 	localAsAttribute, ok := attributes["local_as"]
@@ -1648,10 +1648,10 @@ func (t SpecType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue)
 		ImportPolicy:           importPolicyVal,
 		Interface:              interfaceVal,
 		InterfaceKind:          interfaceKindVal,
-		Ipv4unicast:            ipv4unicastVal,
-		Ipv6unicast:            ipv6unicastVal,
+		Ipv4Unicast:            ipv4UnicastVal,
+		Ipv6Unicast:            ipv6UnicastVal,
 		Keychain:               keychainVal,
-		L2vpnevpn:              l2vpnevpnVal,
+		L2VpnEvpn:              l2VpnEvpnVal,
 		LocalAs:                localAsVal,
 		PeerAs:                 peerAsVal,
 		RouteReflectorIps:      routeReflectorIpsVal,
@@ -1871,40 +1871,40 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`interface_kind expected to be basetypes.StringValue, was: %T`, interfaceKindAttribute))
 	}
 
-	ipv4unicastAttribute, ok := attributes["ipv4unicast"]
+	ipv4UnicastAttribute, ok := attributes["ipv4_unicast"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv4unicast is missing from object`)
+			`ipv4_unicast is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	ipv4unicastVal, ok := ipv4unicastAttribute.(basetypes.ObjectValue)
+	ipv4UnicastVal, ok := ipv4UnicastAttribute.(basetypes.ObjectValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv4unicast expected to be basetypes.ObjectValue, was: %T`, ipv4unicastAttribute))
+			fmt.Sprintf(`ipv4_unicast expected to be basetypes.ObjectValue, was: %T`, ipv4UnicastAttribute))
 	}
 
-	ipv6unicastAttribute, ok := attributes["ipv6unicast"]
+	ipv6UnicastAttribute, ok := attributes["ipv6_unicast"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`ipv6unicast is missing from object`)
+			`ipv6_unicast is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	ipv6unicastVal, ok := ipv6unicastAttribute.(basetypes.ObjectValue)
+	ipv6UnicastVal, ok := ipv6UnicastAttribute.(basetypes.ObjectValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`ipv6unicast expected to be basetypes.ObjectValue, was: %T`, ipv6unicastAttribute))
+			fmt.Sprintf(`ipv6_unicast expected to be basetypes.ObjectValue, was: %T`, ipv6UnicastAttribute))
 	}
 
 	keychainAttribute, ok := attributes["keychain"]
@@ -1925,22 +1925,22 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 			fmt.Sprintf(`keychain expected to be basetypes.StringValue, was: %T`, keychainAttribute))
 	}
 
-	l2vpnevpnAttribute, ok := attributes["l2vpnevpn"]
+	l2VpnEvpnAttribute, ok := attributes["l2_vpn_evpn"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`l2vpnevpn is missing from object`)
+			`l2_vpn_evpn is missing from object`)
 
 		return NewSpecValueUnknown(), diags
 	}
 
-	l2vpnevpnVal, ok := l2vpnevpnAttribute.(basetypes.ObjectValue)
+	l2VpnEvpnVal, ok := l2VpnEvpnAttribute.(basetypes.ObjectValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`l2vpnevpn expected to be basetypes.ObjectValue, was: %T`, l2vpnevpnAttribute))
+			fmt.Sprintf(`l2_vpn_evpn expected to be basetypes.ObjectValue, was: %T`, l2VpnEvpnAttribute))
 	}
 
 	localAsAttribute, ok := attributes["local_as"]
@@ -2100,10 +2100,10 @@ func NewSpecValue(attributeTypes map[string]attr.Type, attributes map[string]att
 		ImportPolicy:           importPolicyVal,
 		Interface:              interfaceVal,
 		InterfaceKind:          interfaceKindVal,
-		Ipv4unicast:            ipv4unicastVal,
-		Ipv6unicast:            ipv6unicastVal,
+		Ipv4Unicast:            ipv4UnicastVal,
+		Ipv6Unicast:            ipv6UnicastVal,
 		Keychain:               keychainVal,
-		L2vpnevpn:              l2vpnevpnVal,
+		L2VpnEvpn:              l2VpnEvpnVal,
 		LocalAs:                localAsVal,
 		PeerAs:                 peerAsVal,
 		RouteReflectorIps:      routeReflectorIpsVal,
@@ -2192,10 +2192,10 @@ type SpecValue struct {
 	ImportPolicy           basetypes.ListValue   `tfsdk:"import_policy"`
 	Interface              basetypes.StringValue `tfsdk:"interface"`
 	InterfaceKind          basetypes.StringValue `tfsdk:"interface_kind"`
-	Ipv4unicast            basetypes.ObjectValue `tfsdk:"ipv4unicast"`
-	Ipv6unicast            basetypes.ObjectValue `tfsdk:"ipv6unicast"`
+	Ipv4Unicast            basetypes.ObjectValue `tfsdk:"ipv4_unicast"`
+	Ipv6Unicast            basetypes.ObjectValue `tfsdk:"ipv6_unicast"`
 	Keychain               basetypes.StringValue `tfsdk:"keychain"`
-	L2vpnevpn              basetypes.ObjectValue `tfsdk:"l2vpnevpn"`
+	L2VpnEvpn              basetypes.ObjectValue `tfsdk:"l2_vpn_evpn"`
 	LocalAs                basetypes.ObjectValue `tfsdk:"local_as"`
 	PeerAs                 basetypes.ObjectValue `tfsdk:"peer_as"`
 	RouteReflectorIps      basetypes.ListValue   `tfsdk:"route_reflector_ips"`
@@ -2227,15 +2227,15 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 	}.TerraformType(ctx)
 	attrTypes["interface"] = basetypes.StringType{}.TerraformType(ctx)
 	attrTypes["interface_kind"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["ipv4unicast"] = basetypes.ObjectType{
-		AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+	attrTypes["ipv4_unicast"] = basetypes.ObjectType{
+		AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
-	attrTypes["ipv6unicast"] = basetypes.ObjectType{
-		AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+	attrTypes["ipv6_unicast"] = basetypes.ObjectType{
+		AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["keychain"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["l2vpnevpn"] = basetypes.ObjectType{
-		AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+	attrTypes["l2_vpn_evpn"] = basetypes.ObjectType{
+		AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["local_as"] = basetypes.ObjectType{
 		AttrTypes: LocalAsValue{}.AttributeTypes(ctx),
@@ -2328,21 +2328,21 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["interface_kind"] = val
 
-		val, err = v.Ipv4unicast.ToTerraformValue(ctx)
+		val, err = v.Ipv4Unicast.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["ipv4unicast"] = val
+		vals["ipv4_unicast"] = val
 
-		val, err = v.Ipv6unicast.ToTerraformValue(ctx)
+		val, err = v.Ipv6Unicast.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["ipv6unicast"] = val
+		vals["ipv6_unicast"] = val
 
 		val, err = v.Keychain.ToTerraformValue(ctx)
 
@@ -2352,13 +2352,13 @@ func (v SpecValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) 
 
 		vals["keychain"] = val
 
-		val, err = v.L2vpnevpn.ToTerraformValue(ctx)
+		val, err = v.L2VpnEvpn.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["l2vpnevpn"] = val
+		vals["l2_vpn_evpn"] = val
 
 		val, err = v.LocalAs.ToTerraformValue(ctx)
 
@@ -2474,66 +2474,66 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 		)
 	}
 
-	var ipv4unicast basetypes.ObjectValue
+	var ipv4Unicast basetypes.ObjectValue
 
-	if v.Ipv4unicast.IsNull() {
-		ipv4unicast = types.ObjectNull(
-			Ipv4unicastValue{}.AttributeTypes(ctx),
+	if v.Ipv4Unicast.IsNull() {
+		ipv4Unicast = types.ObjectNull(
+			Ipv4UnicastValue{}.AttributeTypes(ctx),
 		)
 	}
 
-	if v.Ipv4unicast.IsUnknown() {
-		ipv4unicast = types.ObjectUnknown(
-			Ipv4unicastValue{}.AttributeTypes(ctx),
+	if v.Ipv4Unicast.IsUnknown() {
+		ipv4Unicast = types.ObjectUnknown(
+			Ipv4UnicastValue{}.AttributeTypes(ctx),
 		)
 	}
 
-	if !v.Ipv4unicast.IsNull() && !v.Ipv4unicast.IsUnknown() {
-		ipv4unicast = types.ObjectValueMust(
-			Ipv4unicastValue{}.AttributeTypes(ctx),
-			v.Ipv4unicast.Attributes(),
+	if !v.Ipv4Unicast.IsNull() && !v.Ipv4Unicast.IsUnknown() {
+		ipv4Unicast = types.ObjectValueMust(
+			Ipv4UnicastValue{}.AttributeTypes(ctx),
+			v.Ipv4Unicast.Attributes(),
 		)
 	}
 
-	var ipv6unicast basetypes.ObjectValue
+	var ipv6Unicast basetypes.ObjectValue
 
-	if v.Ipv6unicast.IsNull() {
-		ipv6unicast = types.ObjectNull(
-			Ipv6unicastValue{}.AttributeTypes(ctx),
+	if v.Ipv6Unicast.IsNull() {
+		ipv6Unicast = types.ObjectNull(
+			Ipv6UnicastValue{}.AttributeTypes(ctx),
 		)
 	}
 
-	if v.Ipv6unicast.IsUnknown() {
-		ipv6unicast = types.ObjectUnknown(
-			Ipv6unicastValue{}.AttributeTypes(ctx),
+	if v.Ipv6Unicast.IsUnknown() {
+		ipv6Unicast = types.ObjectUnknown(
+			Ipv6UnicastValue{}.AttributeTypes(ctx),
 		)
 	}
 
-	if !v.Ipv6unicast.IsNull() && !v.Ipv6unicast.IsUnknown() {
-		ipv6unicast = types.ObjectValueMust(
-			Ipv6unicastValue{}.AttributeTypes(ctx),
-			v.Ipv6unicast.Attributes(),
+	if !v.Ipv6Unicast.IsNull() && !v.Ipv6Unicast.IsUnknown() {
+		ipv6Unicast = types.ObjectValueMust(
+			Ipv6UnicastValue{}.AttributeTypes(ctx),
+			v.Ipv6Unicast.Attributes(),
 		)
 	}
 
-	var l2vpnevpn basetypes.ObjectValue
+	var l2VpnEvpn basetypes.ObjectValue
 
-	if v.L2vpnevpn.IsNull() {
-		l2vpnevpn = types.ObjectNull(
-			L2vpnevpnValue{}.AttributeTypes(ctx),
+	if v.L2VpnEvpn.IsNull() {
+		l2VpnEvpn = types.ObjectNull(
+			L2VpnEvpnValue{}.AttributeTypes(ctx),
 		)
 	}
 
-	if v.L2vpnevpn.IsUnknown() {
-		l2vpnevpn = types.ObjectUnknown(
-			L2vpnevpnValue{}.AttributeTypes(ctx),
+	if v.L2VpnEvpn.IsUnknown() {
+		l2VpnEvpn = types.ObjectUnknown(
+			L2VpnEvpnValue{}.AttributeTypes(ctx),
 		)
 	}
 
-	if !v.L2vpnevpn.IsNull() && !v.L2vpnevpn.IsUnknown() {
-		l2vpnevpn = types.ObjectValueMust(
-			L2vpnevpnValue{}.AttributeTypes(ctx),
-			v.L2vpnevpn.Attributes(),
+	if !v.L2VpnEvpn.IsNull() && !v.L2VpnEvpn.IsUnknown() {
+		l2VpnEvpn = types.ObjectValueMust(
+			L2VpnEvpnValue{}.AttributeTypes(ctx),
+			v.L2VpnEvpn.Attributes(),
 		)
 	}
 
@@ -2649,15 +2649,15 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 			},
 			"interface":      basetypes.StringType{},
 			"interface_kind": basetypes.StringType{},
-			"ipv4unicast": basetypes.ObjectType{
-				AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+			"ipv4_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 			},
-			"ipv6unicast": basetypes.ObjectType{
-				AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+			"ipv6_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 			},
 			"keychain": basetypes.StringType{},
-			"l2vpnevpn": basetypes.ObjectType{
-				AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+			"l2_vpn_evpn": basetypes.ObjectType{
+				AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 			},
 			"local_as": basetypes.ObjectType{
 				AttrTypes: LocalAsValue{}.AttributeTypes(ctx),
@@ -2710,15 +2710,15 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 			},
 			"interface":      basetypes.StringType{},
 			"interface_kind": basetypes.StringType{},
-			"ipv4unicast": basetypes.ObjectType{
-				AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+			"ipv4_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 			},
-			"ipv6unicast": basetypes.ObjectType{
-				AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+			"ipv6_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 			},
 			"keychain": basetypes.StringType{},
-			"l2vpnevpn": basetypes.ObjectType{
-				AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+			"l2_vpn_evpn": basetypes.ObjectType{
+				AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 			},
 			"local_as": basetypes.ObjectType{
 				AttrTypes: LocalAsValue{}.AttributeTypes(ctx),
@@ -2771,15 +2771,15 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 			},
 			"interface":      basetypes.StringType{},
 			"interface_kind": basetypes.StringType{},
-			"ipv4unicast": basetypes.ObjectType{
-				AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+			"ipv4_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 			},
-			"ipv6unicast": basetypes.ObjectType{
-				AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+			"ipv6_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 			},
 			"keychain": basetypes.StringType{},
-			"l2vpnevpn": basetypes.ObjectType{
-				AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+			"l2_vpn_evpn": basetypes.ObjectType{
+				AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 			},
 			"local_as": basetypes.ObjectType{
 				AttrTypes: LocalAsValue{}.AttributeTypes(ctx),
@@ -2832,15 +2832,15 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 			},
 			"interface":      basetypes.StringType{},
 			"interface_kind": basetypes.StringType{},
-			"ipv4unicast": basetypes.ObjectType{
-				AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+			"ipv4_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 			},
-			"ipv6unicast": basetypes.ObjectType{
-				AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+			"ipv6_unicast": basetypes.ObjectType{
+				AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 			},
 			"keychain": basetypes.StringType{},
-			"l2vpnevpn": basetypes.ObjectType{
-				AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+			"l2_vpn_evpn": basetypes.ObjectType{
+				AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 			},
 			"local_as": basetypes.ObjectType{
 				AttrTypes: LocalAsValue{}.AttributeTypes(ctx),
@@ -2880,15 +2880,15 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 		},
 		"interface":      basetypes.StringType{},
 		"interface_kind": basetypes.StringType{},
-		"ipv4unicast": basetypes.ObjectType{
-			AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+		"ipv4_unicast": basetypes.ObjectType{
+			AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 		},
-		"ipv6unicast": basetypes.ObjectType{
-			AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+		"ipv6_unicast": basetypes.ObjectType{
+			AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 		},
 		"keychain": basetypes.StringType{},
-		"l2vpnevpn": basetypes.ObjectType{
-			AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+		"l2_vpn_evpn": basetypes.ObjectType{
+			AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 		},
 		"local_as": basetypes.ObjectType{
 			AttrTypes: LocalAsValue{}.AttributeTypes(ctx),
@@ -2931,10 +2931,10 @@ func (v SpecValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, di
 			"import_policy":            importPolicyVal,
 			"interface":                v.Interface,
 			"interface_kind":           v.InterfaceKind,
-			"ipv4unicast":              ipv4unicast,
-			"ipv6unicast":              ipv6unicast,
+			"ipv4_unicast":             ipv4Unicast,
+			"ipv6_unicast":             ipv6Unicast,
 			"keychain":                 v.Keychain,
-			"l2vpnevpn":                l2vpnevpn,
+			"l2_vpn_evpn":              l2VpnEvpn,
 			"local_as":                 localAs,
 			"peer_as":                  peerAs,
 			"route_reflector_ips":      routeReflectorIpsVal,
@@ -2995,11 +2995,11 @@ func (v SpecValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.Ipv4unicast.Equal(other.Ipv4unicast) {
+	if !v.Ipv4Unicast.Equal(other.Ipv4Unicast) {
 		return false
 	}
 
-	if !v.Ipv6unicast.Equal(other.Ipv6unicast) {
+	if !v.Ipv6Unicast.Equal(other.Ipv6Unicast) {
 		return false
 	}
 
@@ -3007,7 +3007,7 @@ func (v SpecValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.L2vpnevpn.Equal(other.L2vpnevpn) {
+	if !v.L2VpnEvpn.Equal(other.L2VpnEvpn) {
 		return false
 	}
 
@@ -3070,15 +3070,15 @@ func (v SpecValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 		},
 		"interface":      basetypes.StringType{},
 		"interface_kind": basetypes.StringType{},
-		"ipv4unicast": basetypes.ObjectType{
-			AttrTypes: Ipv4unicastValue{}.AttributeTypes(ctx),
+		"ipv4_unicast": basetypes.ObjectType{
+			AttrTypes: Ipv4UnicastValue{}.AttributeTypes(ctx),
 		},
-		"ipv6unicast": basetypes.ObjectType{
-			AttrTypes: Ipv6unicastValue{}.AttributeTypes(ctx),
+		"ipv6_unicast": basetypes.ObjectType{
+			AttrTypes: Ipv6UnicastValue{}.AttributeTypes(ctx),
 		},
 		"keychain": basetypes.StringType{},
-		"l2vpnevpn": basetypes.ObjectType{
-			AttrTypes: L2vpnevpnValue{}.AttributeTypes(ctx),
+		"l2_vpn_evpn": basetypes.ObjectType{
+			AttrTypes: L2VpnEvpnValue{}.AttributeTypes(ctx),
 		},
 		"local_as": basetypes.ObjectType{
 			AttrTypes: LocalAsValue{}.AttributeTypes(ctx),
@@ -3570,22 +3570,22 @@ func (t RemovePrivateAsType) ValueFromObject(ctx context.Context, in basetypes.O
 			fmt.Sprintf(`leading_only expected to be basetypes.BoolValue, was: %T`, leadingOnlyAttribute))
 	}
 
-	removePrivateAsmodeAttribute, ok := attributes["remove_private_asmode"]
+	removePrivateAsModeAttribute, ok := attributes["remove_private_as_mode"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`remove_private_asmode is missing from object`)
+			`remove_private_as_mode is missing from object`)
 
 		return nil, diags
 	}
 
-	removePrivateAsmodeVal, ok := removePrivateAsmodeAttribute.(basetypes.StringValue)
+	removePrivateAsModeVal, ok := removePrivateAsModeAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`remove_private_asmode expected to be basetypes.StringValue, was: %T`, removePrivateAsmodeAttribute))
+			fmt.Sprintf(`remove_private_as_mode expected to be basetypes.StringValue, was: %T`, removePrivateAsModeAttribute))
 	}
 
 	if diags.HasError() {
@@ -3595,7 +3595,7 @@ func (t RemovePrivateAsType) ValueFromObject(ctx context.Context, in basetypes.O
 	return RemovePrivateAsValue{
 		IgnorePeerAs:        ignorePeerAsVal,
 		LeadingOnly:         leadingOnlyVal,
-		RemovePrivateAsmode: removePrivateAsmodeVal,
+		RemovePrivateAsMode: removePrivateAsModeVal,
 		state:               attr.ValueStateKnown,
 	}, diags
 }
@@ -3699,22 +3699,22 @@ func NewRemovePrivateAsValue(attributeTypes map[string]attr.Type, attributes map
 			fmt.Sprintf(`leading_only expected to be basetypes.BoolValue, was: %T`, leadingOnlyAttribute))
 	}
 
-	removePrivateAsmodeAttribute, ok := attributes["remove_private_asmode"]
+	removePrivateAsModeAttribute, ok := attributes["remove_private_as_mode"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`remove_private_asmode is missing from object`)
+			`remove_private_as_mode is missing from object`)
 
 		return NewRemovePrivateAsValueUnknown(), diags
 	}
 
-	removePrivateAsmodeVal, ok := removePrivateAsmodeAttribute.(basetypes.StringValue)
+	removePrivateAsModeVal, ok := removePrivateAsModeAttribute.(basetypes.StringValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`remove_private_asmode expected to be basetypes.StringValue, was: %T`, removePrivateAsmodeAttribute))
+			fmt.Sprintf(`remove_private_as_mode expected to be basetypes.StringValue, was: %T`, removePrivateAsModeAttribute))
 	}
 
 	if diags.HasError() {
@@ -3724,7 +3724,7 @@ func NewRemovePrivateAsValue(attributeTypes map[string]attr.Type, attributes map
 	return RemovePrivateAsValue{
 		IgnorePeerAs:        ignorePeerAsVal,
 		LeadingOnly:         leadingOnlyVal,
-		RemovePrivateAsmode: removePrivateAsmodeVal,
+		RemovePrivateAsMode: removePrivateAsModeVal,
 		state:               attr.ValueStateKnown,
 	}, diags
 }
@@ -3799,7 +3799,7 @@ var _ basetypes.ObjectValuable = RemovePrivateAsValue{}
 type RemovePrivateAsValue struct {
 	IgnorePeerAs        basetypes.BoolValue   `tfsdk:"ignore_peer_as"`
 	LeadingOnly         basetypes.BoolValue   `tfsdk:"leading_only"`
-	RemovePrivateAsmode basetypes.StringValue `tfsdk:"remove_private_asmode"`
+	RemovePrivateAsMode basetypes.StringValue `tfsdk:"remove_private_as_mode"`
 	state               attr.ValueState
 }
 
@@ -3811,7 +3811,7 @@ func (v RemovePrivateAsValue) ToTerraformValue(ctx context.Context) (tftypes.Val
 
 	attrTypes["ignore_peer_as"] = basetypes.BoolType{}.TerraformType(ctx)
 	attrTypes["leading_only"] = basetypes.BoolType{}.TerraformType(ctx)
-	attrTypes["remove_private_asmode"] = basetypes.StringType{}.TerraformType(ctx)
+	attrTypes["remove_private_as_mode"] = basetypes.StringType{}.TerraformType(ctx)
 
 	objectType := tftypes.Object{AttributeTypes: attrTypes}
 
@@ -3835,13 +3835,13 @@ func (v RemovePrivateAsValue) ToTerraformValue(ctx context.Context) (tftypes.Val
 
 		vals["leading_only"] = val
 
-		val, err = v.RemovePrivateAsmode.ToTerraformValue(ctx)
+		val, err = v.RemovePrivateAsMode.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["remove_private_asmode"] = val
+		vals["remove_private_as_mode"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -3873,9 +3873,9 @@ func (v RemovePrivateAsValue) ToObjectValue(ctx context.Context) (basetypes.Obje
 	var diags diag.Diagnostics
 
 	attributeTypes := map[string]attr.Type{
-		"ignore_peer_as":        basetypes.BoolType{},
-		"leading_only":          basetypes.BoolType{},
-		"remove_private_asmode": basetypes.StringType{},
+		"ignore_peer_as":         basetypes.BoolType{},
+		"leading_only":           basetypes.BoolType{},
+		"remove_private_as_mode": basetypes.StringType{},
 	}
 
 	if v.IsNull() {
@@ -3889,9 +3889,9 @@ func (v RemovePrivateAsValue) ToObjectValue(ctx context.Context) (basetypes.Obje
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"ignore_peer_as":        v.IgnorePeerAs,
-			"leading_only":          v.LeadingOnly,
-			"remove_private_asmode": v.RemovePrivateAsmode,
+			"ignore_peer_as":         v.IgnorePeerAs,
+			"leading_only":           v.LeadingOnly,
+			"remove_private_as_mode": v.RemovePrivateAsMode,
 		})
 
 	return objVal, diags
@@ -3920,7 +3920,7 @@ func (v RemovePrivateAsValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.RemovePrivateAsmode.Equal(other.RemovePrivateAsmode) {
+	if !v.RemovePrivateAsMode.Equal(other.RemovePrivateAsMode) {
 		return false
 	}
 
@@ -3937,20 +3937,20 @@ func (v RemovePrivateAsValue) Type(ctx context.Context) attr.Type {
 
 func (v RemovePrivateAsValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"ignore_peer_as":        basetypes.BoolType{},
-		"leading_only":          basetypes.BoolType{},
-		"remove_private_asmode": basetypes.StringType{},
+		"ignore_peer_as":         basetypes.BoolType{},
+		"leading_only":           basetypes.BoolType{},
+		"remove_private_as_mode": basetypes.StringType{},
 	}
 }
 
-var _ basetypes.ObjectTypable = Ipv4unicastType{}
+var _ basetypes.ObjectTypable = Ipv4UnicastType{}
 
-type Ipv4unicastType struct {
+type Ipv4UnicastType struct {
 	basetypes.ObjectType
 }
 
-func (t Ipv4unicastType) Equal(o attr.Type) bool {
-	other, ok := o.(Ipv4unicastType)
+func (t Ipv4UnicastType) Equal(o attr.Type) bool {
+	other, ok := o.(Ipv4UnicastType)
 
 	if !ok {
 		return false
@@ -3959,31 +3959,31 @@ func (t Ipv4unicastType) Equal(o attr.Type) bool {
 	return t.ObjectType.Equal(other.ObjectType)
 }
 
-func (t Ipv4unicastType) String() string {
-	return "Ipv4unicastType"
+func (t Ipv4UnicastType) String() string {
+	return "Ipv4UnicastType"
 }
 
-func (t Ipv4unicastType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) (basetypes.ObjectValuable, diag.Diagnostics) {
+func (t Ipv4UnicastType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) (basetypes.ObjectValuable, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	attributes := in.Attributes()
 
-	advertiseIpv6nextHopsAttribute, ok := attributes["advertise_ipv6next_hops"]
+	advertiseIpv6NextHopsAttribute, ok := attributes["advertise_ipv6_next_hops"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`advertise_ipv6next_hops is missing from object`)
+			`advertise_ipv6_next_hops is missing from object`)
 
 		return nil, diags
 	}
 
-	advertiseIpv6nextHopsVal, ok := advertiseIpv6nextHopsAttribute.(basetypes.BoolValue)
+	advertiseIpv6NextHopsVal, ok := advertiseIpv6NextHopsAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`advertise_ipv6next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6nextHopsAttribute))
+			fmt.Sprintf(`advertise_ipv6_next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6NextHopsAttribute))
 	}
 
 	enabledAttribute, ok := attributes["enabled"]
@@ -4022,50 +4022,50 @@ func (t Ipv4unicastType) ValueFromObject(ctx context.Context, in basetypes.Objec
 			fmt.Sprintf(`prefix_limit expected to be basetypes.ObjectValue, was: %T`, prefixLimitAttribute))
 	}
 
-	receiveIpv6nextHopsAttribute, ok := attributes["receive_ipv6next_hops"]
+	receiveIpv6NextHopsAttribute, ok := attributes["receive_ipv6_next_hops"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`receive_ipv6next_hops is missing from object`)
+			`receive_ipv6_next_hops is missing from object`)
 
 		return nil, diags
 	}
 
-	receiveIpv6nextHopsVal, ok := receiveIpv6nextHopsAttribute.(basetypes.BoolValue)
+	receiveIpv6NextHopsVal, ok := receiveIpv6NextHopsAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`receive_ipv6next_hops expected to be basetypes.BoolValue, was: %T`, receiveIpv6nextHopsAttribute))
+			fmt.Sprintf(`receive_ipv6_next_hops expected to be basetypes.BoolValue, was: %T`, receiveIpv6NextHopsAttribute))
 	}
 
 	if diags.HasError() {
 		return nil, diags
 	}
 
-	return Ipv4unicastValue{
-		AdvertiseIpv6nextHops: advertiseIpv6nextHopsVal,
+	return Ipv4UnicastValue{
+		AdvertiseIpv6NextHops: advertiseIpv6NextHopsVal,
 		Enabled:               enabledVal,
 		PrefixLimit:           prefixLimitVal,
-		ReceiveIpv6nextHops:   receiveIpv6nextHopsVal,
+		ReceiveIpv6NextHops:   receiveIpv6NextHopsVal,
 		state:                 attr.ValueStateKnown,
 	}, diags
 }
 
-func NewIpv4unicastValueNull() Ipv4unicastValue {
-	return Ipv4unicastValue{
+func NewIpv4UnicastValueNull() Ipv4UnicastValue {
+	return Ipv4UnicastValue{
 		state: attr.ValueStateNull,
 	}
 }
 
-func NewIpv4unicastValueUnknown() Ipv4unicastValue {
-	return Ipv4unicastValue{
+func NewIpv4UnicastValueUnknown() Ipv4UnicastValue {
+	return Ipv4UnicastValue{
 		state: attr.ValueStateUnknown,
 	}
 }
 
-func NewIpv4unicastValue(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) (Ipv4unicastValue, diag.Diagnostics) {
+func NewIpv4UnicastValue(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) (Ipv4UnicastValue, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	// Reference: https://github.com/hashicorp/terraform-plugin-framework/issues/521
@@ -4076,11 +4076,11 @@ func NewIpv4unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 
 		if !ok {
 			diags.AddError(
-				"Missing Ipv4unicastValue Attribute Value",
-				"While creating a Ipv4unicastValue value, a missing attribute value was detected. "+
-					"A Ipv4unicastValue must contain values for all attributes, even if null or unknown. "+
+				"Missing Ipv4UnicastValue Attribute Value",
+				"While creating a Ipv4UnicastValue value, a missing attribute value was detected. "+
+					"A Ipv4UnicastValue must contain values for all attributes, even if null or unknown. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("Ipv4unicastValue Attribute Name (%s) Expected Type: %s", name, attributeType.String()),
+					fmt.Sprintf("Ipv4UnicastValue Attribute Name (%s) Expected Type: %s", name, attributeType.String()),
 			)
 
 			continue
@@ -4088,12 +4088,12 @@ func NewIpv4unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 
 		if !attributeType.Equal(attribute.Type(ctx)) {
 			diags.AddError(
-				"Invalid Ipv4unicastValue Attribute Type",
-				"While creating a Ipv4unicastValue value, an invalid attribute value was detected. "+
-					"A Ipv4unicastValue must use a matching attribute type for the value. "+
+				"Invalid Ipv4UnicastValue Attribute Type",
+				"While creating a Ipv4UnicastValue value, an invalid attribute value was detected. "+
+					"A Ipv4UnicastValue must use a matching attribute type for the value. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("Ipv4unicastValue Attribute Name (%s) Expected Type: %s\n", name, attributeType.String())+
-					fmt.Sprintf("Ipv4unicastValue Attribute Name (%s) Given Type: %s", name, attribute.Type(ctx)),
+					fmt.Sprintf("Ipv4UnicastValue Attribute Name (%s) Expected Type: %s\n", name, attributeType.String())+
+					fmt.Sprintf("Ipv4UnicastValue Attribute Name (%s) Given Type: %s", name, attribute.Type(ctx)),
 			)
 		}
 	}
@@ -4103,35 +4103,35 @@ func NewIpv4unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 
 		if !ok {
 			diags.AddError(
-				"Extra Ipv4unicastValue Attribute Value",
-				"While creating a Ipv4unicastValue value, an extra attribute value was detected. "+
-					"A Ipv4unicastValue must not contain values beyond the expected attribute types. "+
+				"Extra Ipv4UnicastValue Attribute Value",
+				"While creating a Ipv4UnicastValue value, an extra attribute value was detected. "+
+					"A Ipv4UnicastValue must not contain values beyond the expected attribute types. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("Extra Ipv4unicastValue Attribute Name: %s", name),
+					fmt.Sprintf("Extra Ipv4UnicastValue Attribute Name: %s", name),
 			)
 		}
 	}
 
 	if diags.HasError() {
-		return NewIpv4unicastValueUnknown(), diags
+		return NewIpv4UnicastValueUnknown(), diags
 	}
 
-	advertiseIpv6nextHopsAttribute, ok := attributes["advertise_ipv6next_hops"]
+	advertiseIpv6NextHopsAttribute, ok := attributes["advertise_ipv6_next_hops"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`advertise_ipv6next_hops is missing from object`)
+			`advertise_ipv6_next_hops is missing from object`)
 
-		return NewIpv4unicastValueUnknown(), diags
+		return NewIpv4UnicastValueUnknown(), diags
 	}
 
-	advertiseIpv6nextHopsVal, ok := advertiseIpv6nextHopsAttribute.(basetypes.BoolValue)
+	advertiseIpv6NextHopsVal, ok := advertiseIpv6NextHopsAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`advertise_ipv6next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6nextHopsAttribute))
+			fmt.Sprintf(`advertise_ipv6_next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6NextHopsAttribute))
 	}
 
 	enabledAttribute, ok := attributes["enabled"]
@@ -4141,7 +4141,7 @@ func NewIpv4unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 			"Attribute Missing",
 			`enabled is missing from object`)
 
-		return NewIpv4unicastValueUnknown(), diags
+		return NewIpv4UnicastValueUnknown(), diags
 	}
 
 	enabledVal, ok := enabledAttribute.(basetypes.BoolValue)
@@ -4159,7 +4159,7 @@ func NewIpv4unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 			"Attribute Missing",
 			`prefix_limit is missing from object`)
 
-		return NewIpv4unicastValueUnknown(), diags
+		return NewIpv4UnicastValueUnknown(), diags
 	}
 
 	prefixLimitVal, ok := prefixLimitAttribute.(basetypes.ObjectValue)
@@ -4170,39 +4170,39 @@ func NewIpv4unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 			fmt.Sprintf(`prefix_limit expected to be basetypes.ObjectValue, was: %T`, prefixLimitAttribute))
 	}
 
-	receiveIpv6nextHopsAttribute, ok := attributes["receive_ipv6next_hops"]
+	receiveIpv6NextHopsAttribute, ok := attributes["receive_ipv6_next_hops"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`receive_ipv6next_hops is missing from object`)
+			`receive_ipv6_next_hops is missing from object`)
 
-		return NewIpv4unicastValueUnknown(), diags
+		return NewIpv4UnicastValueUnknown(), diags
 	}
 
-	receiveIpv6nextHopsVal, ok := receiveIpv6nextHopsAttribute.(basetypes.BoolValue)
+	receiveIpv6NextHopsVal, ok := receiveIpv6NextHopsAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`receive_ipv6next_hops expected to be basetypes.BoolValue, was: %T`, receiveIpv6nextHopsAttribute))
+			fmt.Sprintf(`receive_ipv6_next_hops expected to be basetypes.BoolValue, was: %T`, receiveIpv6NextHopsAttribute))
 	}
 
 	if diags.HasError() {
-		return NewIpv4unicastValueUnknown(), diags
+		return NewIpv4UnicastValueUnknown(), diags
 	}
 
-	return Ipv4unicastValue{
-		AdvertiseIpv6nextHops: advertiseIpv6nextHopsVal,
+	return Ipv4UnicastValue{
+		AdvertiseIpv6NextHops: advertiseIpv6NextHopsVal,
 		Enabled:               enabledVal,
 		PrefixLimit:           prefixLimitVal,
-		ReceiveIpv6nextHops:   receiveIpv6nextHopsVal,
+		ReceiveIpv6NextHops:   receiveIpv6NextHopsVal,
 		state:                 attr.ValueStateKnown,
 	}, diags
 }
 
-func NewIpv4unicastValueMust(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) Ipv4unicastValue {
-	object, diags := NewIpv4unicastValue(attributeTypes, attributes)
+func NewIpv4UnicastValueMust(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) Ipv4UnicastValue {
+	object, diags := NewIpv4UnicastValue(attributeTypes, attributes)
 
 	if diags.HasError() {
 		// This could potentially be added to the diag package.
@@ -4216,15 +4216,15 @@ func NewIpv4unicastValueMust(attributeTypes map[string]attr.Type, attributes map
 				diagnostic.Detail()))
 		}
 
-		panic("NewIpv4unicastValueMust received error(s): " + strings.Join(diagsStrings, "\n"))
+		panic("NewIpv4UnicastValueMust received error(s): " + strings.Join(diagsStrings, "\n"))
 	}
 
 	return object
 }
 
-func (t Ipv4unicastType) ValueFromTerraform(ctx context.Context, in tftypes.Value) (attr.Value, error) {
+func (t Ipv4UnicastType) ValueFromTerraform(ctx context.Context, in tftypes.Value) (attr.Value, error) {
 	if in.Type() == nil {
-		return NewIpv4unicastValueNull(), nil
+		return NewIpv4UnicastValueNull(), nil
 	}
 
 	if !in.Type().Equal(t.TerraformType(ctx)) {
@@ -4232,11 +4232,11 @@ func (t Ipv4unicastType) ValueFromTerraform(ctx context.Context, in tftypes.Valu
 	}
 
 	if !in.IsKnown() {
-		return NewIpv4unicastValueUnknown(), nil
+		return NewIpv4UnicastValueUnknown(), nil
 	}
 
 	if in.IsNull() {
-		return NewIpv4unicastValueNull(), nil
+		return NewIpv4UnicastValueNull(), nil
 	}
 
 	attributes := map[string]attr.Value{}
@@ -4259,35 +4259,35 @@ func (t Ipv4unicastType) ValueFromTerraform(ctx context.Context, in tftypes.Valu
 		attributes[k] = a
 	}
 
-	return NewIpv4unicastValueMust(Ipv4unicastValue{}.AttributeTypes(ctx), attributes), nil
+	return NewIpv4UnicastValueMust(Ipv4UnicastValue{}.AttributeTypes(ctx), attributes), nil
 }
 
-func (t Ipv4unicastType) ValueType(ctx context.Context) attr.Value {
-	return Ipv4unicastValue{}
+func (t Ipv4UnicastType) ValueType(ctx context.Context) attr.Value {
+	return Ipv4UnicastValue{}
 }
 
-var _ basetypes.ObjectValuable = Ipv4unicastValue{}
+var _ basetypes.ObjectValuable = Ipv4UnicastValue{}
 
-type Ipv4unicastValue struct {
-	AdvertiseIpv6nextHops basetypes.BoolValue   `tfsdk:"advertise_ipv6next_hops"`
+type Ipv4UnicastValue struct {
+	AdvertiseIpv6NextHops basetypes.BoolValue   `tfsdk:"advertise_ipv6_next_hops"`
 	Enabled               basetypes.BoolValue   `tfsdk:"enabled"`
 	PrefixLimit           basetypes.ObjectValue `tfsdk:"prefix_limit"`
-	ReceiveIpv6nextHops   basetypes.BoolValue   `tfsdk:"receive_ipv6next_hops"`
+	ReceiveIpv6NextHops   basetypes.BoolValue   `tfsdk:"receive_ipv6_next_hops"`
 	state                 attr.ValueState
 }
 
-func (v Ipv4unicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
+func (v Ipv4UnicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
 	attrTypes := make(map[string]tftypes.Type, 4)
 
 	var val tftypes.Value
 	var err error
 
-	attrTypes["advertise_ipv6next_hops"] = basetypes.BoolType{}.TerraformType(ctx)
+	attrTypes["advertise_ipv6_next_hops"] = basetypes.BoolType{}.TerraformType(ctx)
 	attrTypes["enabled"] = basetypes.BoolType{}.TerraformType(ctx)
 	attrTypes["prefix_limit"] = basetypes.ObjectType{
 		AttrTypes: PrefixLimitValue{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
-	attrTypes["receive_ipv6next_hops"] = basetypes.BoolType{}.TerraformType(ctx)
+	attrTypes["receive_ipv6_next_hops"] = basetypes.BoolType{}.TerraformType(ctx)
 
 	objectType := tftypes.Object{AttributeTypes: attrTypes}
 
@@ -4295,13 +4295,13 @@ func (v Ipv4unicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, 
 	case attr.ValueStateKnown:
 		vals := make(map[string]tftypes.Value, 4)
 
-		val, err = v.AdvertiseIpv6nextHops.ToTerraformValue(ctx)
+		val, err = v.AdvertiseIpv6NextHops.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["advertise_ipv6next_hops"] = val
+		vals["advertise_ipv6_next_hops"] = val
 
 		val, err = v.Enabled.ToTerraformValue(ctx)
 
@@ -4319,13 +4319,13 @@ func (v Ipv4unicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, 
 
 		vals["prefix_limit"] = val
 
-		val, err = v.ReceiveIpv6nextHops.ToTerraformValue(ctx)
+		val, err = v.ReceiveIpv6NextHops.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["receive_ipv6next_hops"] = val
+		vals["receive_ipv6_next_hops"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -4341,19 +4341,19 @@ func (v Ipv4unicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, 
 	}
 }
 
-func (v Ipv4unicastValue) IsNull() bool {
+func (v Ipv4UnicastValue) IsNull() bool {
 	return v.state == attr.ValueStateNull
 }
 
-func (v Ipv4unicastValue) IsUnknown() bool {
+func (v Ipv4UnicastValue) IsUnknown() bool {
 	return v.state == attr.ValueStateUnknown
 }
 
-func (v Ipv4unicastValue) String() string {
-	return "Ipv4unicastValue"
+func (v Ipv4UnicastValue) String() string {
+	return "Ipv4UnicastValue"
 }
 
-func (v Ipv4unicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, diag.Diagnostics) {
+func (v Ipv4UnicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	var prefixLimit basetypes.ObjectValue
@@ -4378,12 +4378,12 @@ func (v Ipv4unicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectVa
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"advertise_ipv6next_hops": basetypes.BoolType{},
-		"enabled":                 basetypes.BoolType{},
+		"advertise_ipv6_next_hops": basetypes.BoolType{},
+		"enabled":                  basetypes.BoolType{},
 		"prefix_limit": basetypes.ObjectType{
 			AttrTypes: PrefixLimitValue{}.AttributeTypes(ctx),
 		},
-		"receive_ipv6next_hops": basetypes.BoolType{},
+		"receive_ipv6_next_hops": basetypes.BoolType{},
 	}
 
 	if v.IsNull() {
@@ -4397,17 +4397,17 @@ func (v Ipv4unicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectVa
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"advertise_ipv6next_hops": v.AdvertiseIpv6nextHops,
-			"enabled":                 v.Enabled,
-			"prefix_limit":            prefixLimit,
-			"receive_ipv6next_hops":   v.ReceiveIpv6nextHops,
+			"advertise_ipv6_next_hops": v.AdvertiseIpv6NextHops,
+			"enabled":                  v.Enabled,
+			"prefix_limit":             prefixLimit,
+			"receive_ipv6_next_hops":   v.ReceiveIpv6NextHops,
 		})
 
 	return objVal, diags
 }
 
-func (v Ipv4unicastValue) Equal(o attr.Value) bool {
-	other, ok := o.(Ipv4unicastValue)
+func (v Ipv4UnicastValue) Equal(o attr.Value) bool {
+	other, ok := o.(Ipv4UnicastValue)
 
 	if !ok {
 		return false
@@ -4421,7 +4421,7 @@ func (v Ipv4unicastValue) Equal(o attr.Value) bool {
 		return true
 	}
 
-	if !v.AdvertiseIpv6nextHops.Equal(other.AdvertiseIpv6nextHops) {
+	if !v.AdvertiseIpv6NextHops.Equal(other.AdvertiseIpv6NextHops) {
 		return false
 	}
 
@@ -4433,29 +4433,29 @@ func (v Ipv4unicastValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.ReceiveIpv6nextHops.Equal(other.ReceiveIpv6nextHops) {
+	if !v.ReceiveIpv6NextHops.Equal(other.ReceiveIpv6NextHops) {
 		return false
 	}
 
 	return true
 }
 
-func (v Ipv4unicastValue) Type(ctx context.Context) attr.Type {
-	return Ipv4unicastType{
+func (v Ipv4UnicastValue) Type(ctx context.Context) attr.Type {
+	return Ipv4UnicastType{
 		basetypes.ObjectType{
 			AttrTypes: v.AttributeTypes(ctx),
 		},
 	}
 }
 
-func (v Ipv4unicastValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
+func (v Ipv4UnicastValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"advertise_ipv6next_hops": basetypes.BoolType{},
-		"enabled":                 basetypes.BoolType{},
+		"advertise_ipv6_next_hops": basetypes.BoolType{},
+		"enabled":                  basetypes.BoolType{},
 		"prefix_limit": basetypes.ObjectType{
 			AttrTypes: PrefixLimitValue{}.AttributeTypes(ctx),
 		},
-		"receive_ipv6next_hops": basetypes.BoolType{},
+		"receive_ipv6_next_hops": basetypes.BoolType{},
 	}
 }
 
@@ -5760,14 +5760,14 @@ func (v PrefixLimitReceivedValue) AttributeTypes(ctx context.Context) map[string
 	}
 }
 
-var _ basetypes.ObjectTypable = Ipv6unicastType{}
+var _ basetypes.ObjectTypable = Ipv6UnicastType{}
 
-type Ipv6unicastType struct {
+type Ipv6UnicastType struct {
 	basetypes.ObjectType
 }
 
-func (t Ipv6unicastType) Equal(o attr.Type) bool {
-	other, ok := o.(Ipv6unicastType)
+func (t Ipv6UnicastType) Equal(o attr.Type) bool {
+	other, ok := o.(Ipv6UnicastType)
 
 	if !ok {
 		return false
@@ -5776,11 +5776,11 @@ func (t Ipv6unicastType) Equal(o attr.Type) bool {
 	return t.ObjectType.Equal(other.ObjectType)
 }
 
-func (t Ipv6unicastType) String() string {
-	return "Ipv6unicastType"
+func (t Ipv6UnicastType) String() string {
+	return "Ipv6UnicastType"
 }
 
-func (t Ipv6unicastType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) (basetypes.ObjectValuable, diag.Diagnostics) {
+func (t Ipv6UnicastType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) (basetypes.ObjectValuable, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	attributes := in.Attributes()
@@ -5803,7 +5803,7 @@ func (t Ipv6unicastType) ValueFromObject(ctx context.Context, in basetypes.Objec
 			fmt.Sprintf(`enabled expected to be basetypes.BoolValue, was: %T`, enabledAttribute))
 	}
 
-	prefixLimit1Attribute, ok := attributes["prefix_limit_1"]
+	prefixLimit1Attribute, ok := attributes["prefix_limit"]
 
 	if !ok {
 		diags.AddError(
@@ -5825,26 +5825,26 @@ func (t Ipv6unicastType) ValueFromObject(ctx context.Context, in basetypes.Objec
 		return nil, diags
 	}
 
-	return Ipv6unicastValue{
+	return Ipv6UnicastValue{
 		Enabled:      enabledVal,
 		PrefixLimit1: prefixLimit1Val,
 		state:        attr.ValueStateKnown,
 	}, diags
 }
 
-func NewIpv6unicastValueNull() Ipv6unicastValue {
-	return Ipv6unicastValue{
+func NewIpv6UnicastValueNull() Ipv6UnicastValue {
+	return Ipv6UnicastValue{
 		state: attr.ValueStateNull,
 	}
 }
 
-func NewIpv6unicastValueUnknown() Ipv6unicastValue {
-	return Ipv6unicastValue{
+func NewIpv6UnicastValueUnknown() Ipv6UnicastValue {
+	return Ipv6UnicastValue{
 		state: attr.ValueStateUnknown,
 	}
 }
 
-func NewIpv6unicastValue(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) (Ipv6unicastValue, diag.Diagnostics) {
+func NewIpv6UnicastValue(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) (Ipv6UnicastValue, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	// Reference: https://github.com/hashicorp/terraform-plugin-framework/issues/521
@@ -5855,11 +5855,11 @@ func NewIpv6unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 
 		if !ok {
 			diags.AddError(
-				"Missing Ipv6unicastValue Attribute Value",
-				"While creating a Ipv6unicastValue value, a missing attribute value was detected. "+
-					"A Ipv6unicastValue must contain values for all attributes, even if null or unknown. "+
+				"Missing Ipv6UnicastValue Attribute Value",
+				"While creating a Ipv6UnicastValue value, a missing attribute value was detected. "+
+					"A Ipv6UnicastValue must contain values for all attributes, even if null or unknown. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("Ipv6unicastValue Attribute Name (%s) Expected Type: %s", name, attributeType.String()),
+					fmt.Sprintf("Ipv6UnicastValue Attribute Name (%s) Expected Type: %s", name, attributeType.String()),
 			)
 
 			continue
@@ -5867,12 +5867,12 @@ func NewIpv6unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 
 		if !attributeType.Equal(attribute.Type(ctx)) {
 			diags.AddError(
-				"Invalid Ipv6unicastValue Attribute Type",
-				"While creating a Ipv6unicastValue value, an invalid attribute value was detected. "+
-					"A Ipv6unicastValue must use a matching attribute type for the value. "+
+				"Invalid Ipv6UnicastValue Attribute Type",
+				"While creating a Ipv6UnicastValue value, an invalid attribute value was detected. "+
+					"A Ipv6UnicastValue must use a matching attribute type for the value. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("Ipv6unicastValue Attribute Name (%s) Expected Type: %s\n", name, attributeType.String())+
-					fmt.Sprintf("Ipv6unicastValue Attribute Name (%s) Given Type: %s", name, attribute.Type(ctx)),
+					fmt.Sprintf("Ipv6UnicastValue Attribute Name (%s) Expected Type: %s\n", name, attributeType.String())+
+					fmt.Sprintf("Ipv6UnicastValue Attribute Name (%s) Given Type: %s", name, attribute.Type(ctx)),
 			)
 		}
 	}
@@ -5882,17 +5882,17 @@ func NewIpv6unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 
 		if !ok {
 			diags.AddError(
-				"Extra Ipv6unicastValue Attribute Value",
-				"While creating a Ipv6unicastValue value, an extra attribute value was detected. "+
-					"A Ipv6unicastValue must not contain values beyond the expected attribute types. "+
+				"Extra Ipv6UnicastValue Attribute Value",
+				"While creating a Ipv6UnicastValue value, an extra attribute value was detected. "+
+					"A Ipv6UnicastValue must not contain values beyond the expected attribute types. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("Extra Ipv6unicastValue Attribute Name: %s", name),
+					fmt.Sprintf("Extra Ipv6UnicastValue Attribute Name: %s", name),
 			)
 		}
 	}
 
 	if diags.HasError() {
-		return NewIpv6unicastValueUnknown(), diags
+		return NewIpv6UnicastValueUnknown(), diags
 	}
 
 	enabledAttribute, ok := attributes["enabled"]
@@ -5902,7 +5902,7 @@ func NewIpv6unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 			"Attribute Missing",
 			`enabled is missing from object`)
 
-		return NewIpv6unicastValueUnknown(), diags
+		return NewIpv6UnicastValueUnknown(), diags
 	}
 
 	enabledVal, ok := enabledAttribute.(basetypes.BoolValue)
@@ -5913,14 +5913,14 @@ func NewIpv6unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 			fmt.Sprintf(`enabled expected to be basetypes.BoolValue, was: %T`, enabledAttribute))
 	}
 
-	prefixLimit1Attribute, ok := attributes["prefix_limit_1"]
+	prefixLimit1Attribute, ok := attributes["prefix_limit"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
 			`prefix_limit_1 is missing from object`)
 
-		return NewIpv6unicastValueUnknown(), diags
+		return NewIpv6UnicastValueUnknown(), diags
 	}
 
 	prefixLimit1Val, ok := prefixLimit1Attribute.(basetypes.ObjectValue)
@@ -5932,18 +5932,18 @@ func NewIpv6unicastValue(attributeTypes map[string]attr.Type, attributes map[str
 	}
 
 	if diags.HasError() {
-		return NewIpv6unicastValueUnknown(), diags
+		return NewIpv6UnicastValueUnknown(), diags
 	}
 
-	return Ipv6unicastValue{
+	return Ipv6UnicastValue{
 		Enabled:      enabledVal,
 		PrefixLimit1: prefixLimit1Val,
 		state:        attr.ValueStateKnown,
 	}, diags
 }
 
-func NewIpv6unicastValueMust(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) Ipv6unicastValue {
-	object, diags := NewIpv6unicastValue(attributeTypes, attributes)
+func NewIpv6UnicastValueMust(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) Ipv6UnicastValue {
+	object, diags := NewIpv6UnicastValue(attributeTypes, attributes)
 
 	if diags.HasError() {
 		// This could potentially be added to the diag package.
@@ -5957,15 +5957,15 @@ func NewIpv6unicastValueMust(attributeTypes map[string]attr.Type, attributes map
 				diagnostic.Detail()))
 		}
 
-		panic("NewIpv6unicastValueMust received error(s): " + strings.Join(diagsStrings, "\n"))
+		panic("NewIpv6UnicastValueMust received error(s): " + strings.Join(diagsStrings, "\n"))
 	}
 
 	return object
 }
 
-func (t Ipv6unicastType) ValueFromTerraform(ctx context.Context, in tftypes.Value) (attr.Value, error) {
+func (t Ipv6UnicastType) ValueFromTerraform(ctx context.Context, in tftypes.Value) (attr.Value, error) {
 	if in.Type() == nil {
-		return NewIpv6unicastValueNull(), nil
+		return NewIpv6UnicastValueNull(), nil
 	}
 
 	if !in.Type().Equal(t.TerraformType(ctx)) {
@@ -5973,11 +5973,11 @@ func (t Ipv6unicastType) ValueFromTerraform(ctx context.Context, in tftypes.Valu
 	}
 
 	if !in.IsKnown() {
-		return NewIpv6unicastValueUnknown(), nil
+		return NewIpv6UnicastValueUnknown(), nil
 	}
 
 	if in.IsNull() {
-		return NewIpv6unicastValueNull(), nil
+		return NewIpv6UnicastValueNull(), nil
 	}
 
 	attributes := map[string]attr.Value{}
@@ -6000,29 +6000,29 @@ func (t Ipv6unicastType) ValueFromTerraform(ctx context.Context, in tftypes.Valu
 		attributes[k] = a
 	}
 
-	return NewIpv6unicastValueMust(Ipv6unicastValue{}.AttributeTypes(ctx), attributes), nil
+	return NewIpv6UnicastValueMust(Ipv6UnicastValue{}.AttributeTypes(ctx), attributes), nil
 }
 
-func (t Ipv6unicastType) ValueType(ctx context.Context) attr.Value {
-	return Ipv6unicastValue{}
+func (t Ipv6UnicastType) ValueType(ctx context.Context) attr.Value {
+	return Ipv6UnicastValue{}
 }
 
-var _ basetypes.ObjectValuable = Ipv6unicastValue{}
+var _ basetypes.ObjectValuable = Ipv6UnicastValue{}
 
-type Ipv6unicastValue struct {
+type Ipv6UnicastValue struct {
 	Enabled      basetypes.BoolValue   `tfsdk:"enabled"`
-	PrefixLimit1 basetypes.ObjectValue `tfsdk:"prefix_limit_1"`
+	PrefixLimit1 basetypes.ObjectValue `tfsdk:"prefix_limit"`
 	state        attr.ValueState
 }
 
-func (v Ipv6unicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
+func (v Ipv6UnicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
 	attrTypes := make(map[string]tftypes.Type, 2)
 
 	var val tftypes.Value
 	var err error
 
 	attrTypes["enabled"] = basetypes.BoolType{}.TerraformType(ctx)
-	attrTypes["prefix_limit_1"] = basetypes.ObjectType{
+	attrTypes["prefix_limit"] = basetypes.ObjectType{
 		AttrTypes: PrefixLimit1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 
@@ -6046,7 +6046,7 @@ func (v Ipv6unicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, 
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["prefix_limit_1"] = val
+		vals["prefix_limit"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -6062,19 +6062,19 @@ func (v Ipv6unicastValue) ToTerraformValue(ctx context.Context) (tftypes.Value, 
 	}
 }
 
-func (v Ipv6unicastValue) IsNull() bool {
+func (v Ipv6UnicastValue) IsNull() bool {
 	return v.state == attr.ValueStateNull
 }
 
-func (v Ipv6unicastValue) IsUnknown() bool {
+func (v Ipv6UnicastValue) IsUnknown() bool {
 	return v.state == attr.ValueStateUnknown
 }
 
-func (v Ipv6unicastValue) String() string {
-	return "Ipv6unicastValue"
+func (v Ipv6UnicastValue) String() string {
+	return "Ipv6UnicastValue"
 }
 
-func (v Ipv6unicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, diag.Diagnostics) {
+func (v Ipv6UnicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	var prefixLimit1 basetypes.ObjectValue
@@ -6100,7 +6100,7 @@ func (v Ipv6unicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectVa
 
 	attributeTypes := map[string]attr.Type{
 		"enabled": basetypes.BoolType{},
-		"prefix_limit_1": basetypes.ObjectType{
+		"prefix_limit": basetypes.ObjectType{
 			AttrTypes: PrefixLimit1Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -6116,15 +6116,15 @@ func (v Ipv6unicastValue) ToObjectValue(ctx context.Context) (basetypes.ObjectVa
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"enabled":        v.Enabled,
-			"prefix_limit_1": prefixLimit1,
+			"enabled":      v.Enabled,
+			"prefix_limit": prefixLimit1,
 		})
 
 	return objVal, diags
 }
 
-func (v Ipv6unicastValue) Equal(o attr.Value) bool {
-	other, ok := o.(Ipv6unicastValue)
+func (v Ipv6UnicastValue) Equal(o attr.Value) bool {
+	other, ok := o.(Ipv6UnicastValue)
 
 	if !ok {
 		return false
@@ -6149,18 +6149,18 @@ func (v Ipv6unicastValue) Equal(o attr.Value) bool {
 	return true
 }
 
-func (v Ipv6unicastValue) Type(ctx context.Context) attr.Type {
-	return Ipv6unicastType{
+func (v Ipv6UnicastValue) Type(ctx context.Context) attr.Type {
+	return Ipv6UnicastType{
 		basetypes.ObjectType{
 			AttrTypes: v.AttributeTypes(ctx),
 		},
 	}
 }
 
-func (v Ipv6unicastValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
+func (v Ipv6UnicastValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
 		"enabled": basetypes.BoolType{},
-		"prefix_limit_1": basetypes.ObjectType{
+		"prefix_limit": basetypes.ObjectType{
 			AttrTypes: PrefixLimit1Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -6191,7 +6191,7 @@ func (t PrefixLimit1Type) ValueFromObject(ctx context.Context, in basetypes.Obje
 
 	attributes := in.Attributes()
 
-	prefixLimitAccepted1Attribute, ok := attributes["prefix_limit_accepted_1"]
+	prefixLimitAccepted1Attribute, ok := attributes["prefix_limit_accepted"]
 
 	if !ok {
 		diags.AddError(
@@ -6209,7 +6209,7 @@ func (t PrefixLimit1Type) ValueFromObject(ctx context.Context, in basetypes.Obje
 			fmt.Sprintf(`prefix_limit_accepted_1 expected to be basetypes.ObjectValue, was: %T`, prefixLimitAccepted1Attribute))
 	}
 
-	prefixLimitReceived1Attribute, ok := attributes["prefix_limit_received_1"]
+	prefixLimitReceived1Attribute, ok := attributes["prefix_limit_received"]
 
 	if !ok {
 		diags.AddError(
@@ -6301,7 +6301,7 @@ func NewPrefixLimit1Value(attributeTypes map[string]attr.Type, attributes map[st
 		return NewPrefixLimit1ValueUnknown(), diags
 	}
 
-	prefixLimitAccepted1Attribute, ok := attributes["prefix_limit_accepted_1"]
+	prefixLimitAccepted1Attribute, ok := attributes["prefix_limit_accepted"]
 
 	if !ok {
 		diags.AddError(
@@ -6319,7 +6319,7 @@ func NewPrefixLimit1Value(attributeTypes map[string]attr.Type, attributes map[st
 			fmt.Sprintf(`prefix_limit_accepted_1 expected to be basetypes.ObjectValue, was: %T`, prefixLimitAccepted1Attribute))
 	}
 
-	prefixLimitReceived1Attribute, ok := attributes["prefix_limit_received_1"]
+	prefixLimitReceived1Attribute, ok := attributes["prefix_limit_received"]
 
 	if !ok {
 		diags.AddError(
@@ -6416,8 +6416,8 @@ func (t PrefixLimit1Type) ValueType(ctx context.Context) attr.Value {
 var _ basetypes.ObjectValuable = PrefixLimit1Value{}
 
 type PrefixLimit1Value struct {
-	PrefixLimitAccepted1 basetypes.ObjectValue `tfsdk:"prefix_limit_accepted_1"`
-	PrefixLimitReceived1 basetypes.ObjectValue `tfsdk:"prefix_limit_received_1"`
+	PrefixLimitAccepted1 basetypes.ObjectValue `tfsdk:"prefix_limit_accepted"`
+	PrefixLimitReceived1 basetypes.ObjectValue `tfsdk:"prefix_limit_received"`
 	state                attr.ValueState
 }
 
@@ -6427,10 +6427,10 @@ func (v PrefixLimit1Value) ToTerraformValue(ctx context.Context) (tftypes.Value,
 	var val tftypes.Value
 	var err error
 
-	attrTypes["prefix_limit_accepted_1"] = basetypes.ObjectType{
+	attrTypes["prefix_limit_accepted"] = basetypes.ObjectType{
 		AttrTypes: PrefixLimitAccepted1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
-	attrTypes["prefix_limit_received_1"] = basetypes.ObjectType{
+	attrTypes["prefix_limit_received"] = basetypes.ObjectType{
 		AttrTypes: PrefixLimitReceived1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 
@@ -6446,7 +6446,7 @@ func (v PrefixLimit1Value) ToTerraformValue(ctx context.Context) (tftypes.Value,
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["prefix_limit_accepted_1"] = val
+		vals["prefix_limit_accepted"] = val
 
 		val, err = v.PrefixLimitReceived1.ToTerraformValue(ctx)
 
@@ -6454,7 +6454,7 @@ func (v PrefixLimit1Value) ToTerraformValue(ctx context.Context) (tftypes.Value,
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["prefix_limit_received_1"] = val
+		vals["prefix_limit_received"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -6528,10 +6528,10 @@ func (v PrefixLimit1Value) ToObjectValue(ctx context.Context) (basetypes.ObjectV
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"prefix_limit_accepted_1": basetypes.ObjectType{
+		"prefix_limit_accepted": basetypes.ObjectType{
 			AttrTypes: PrefixLimitAccepted1Value{}.AttributeTypes(ctx),
 		},
-		"prefix_limit_received_1": basetypes.ObjectType{
+		"prefix_limit_received": basetypes.ObjectType{
 			AttrTypes: PrefixLimitReceived1Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -6547,8 +6547,8 @@ func (v PrefixLimit1Value) ToObjectValue(ctx context.Context) (basetypes.ObjectV
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"prefix_limit_accepted_1": prefixLimitAccepted1,
-			"prefix_limit_received_1": prefixLimitReceived1,
+			"prefix_limit_accepted": prefixLimitAccepted1,
+			"prefix_limit_received": prefixLimitReceived1,
 		})
 
 	return objVal, diags
@@ -6590,10 +6590,10 @@ func (v PrefixLimit1Value) Type(ctx context.Context) attr.Type {
 
 func (v PrefixLimit1Value) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"prefix_limit_accepted_1": basetypes.ObjectType{
+		"prefix_limit_accepted": basetypes.ObjectType{
 			AttrTypes: PrefixLimitAccepted1Value{}.AttributeTypes(ctx),
 		},
-		"prefix_limit_received_1": basetypes.ObjectType{
+		"prefix_limit_received": basetypes.ObjectType{
 			AttrTypes: PrefixLimitReceived1Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -7467,14 +7467,14 @@ func (v PrefixLimitReceived1Value) AttributeTypes(ctx context.Context) map[strin
 	}
 }
 
-var _ basetypes.ObjectTypable = L2vpnevpnType{}
+var _ basetypes.ObjectTypable = L2VpnEvpnType{}
 
-type L2vpnevpnType struct {
+type L2VpnEvpnType struct {
 	basetypes.ObjectType
 }
 
-func (t L2vpnevpnType) Equal(o attr.Type) bool {
-	other, ok := o.(L2vpnevpnType)
+func (t L2VpnEvpnType) Equal(o attr.Type) bool {
+	other, ok := o.(L2VpnEvpnType)
 
 	if !ok {
 		return false
@@ -7483,31 +7483,31 @@ func (t L2vpnevpnType) Equal(o attr.Type) bool {
 	return t.ObjectType.Equal(other.ObjectType)
 }
 
-func (t L2vpnevpnType) String() string {
-	return "L2vpnevpnType"
+func (t L2VpnEvpnType) String() string {
+	return "L2VpnEvpnType"
 }
 
-func (t L2vpnevpnType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) (basetypes.ObjectValuable, diag.Diagnostics) {
+func (t L2VpnEvpnType) ValueFromObject(ctx context.Context, in basetypes.ObjectValue) (basetypes.ObjectValuable, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	attributes := in.Attributes()
 
-	advertiseIpv6nextHopsAttribute, ok := attributes["advertise_ipv6next_hops"]
+	advertiseIpv6NextHopsAttribute, ok := attributes["advertise_ipv6_next_hops"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`advertise_ipv6next_hops is missing from object`)
+			`advertise_ipv6_next_hops is missing from object`)
 
 		return nil, diags
 	}
 
-	advertiseIpv6nextHopsVal, ok := advertiseIpv6nextHopsAttribute.(basetypes.BoolValue)
+	advertiseIpv6NextHopsVal, ok := advertiseIpv6NextHopsAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`advertise_ipv6next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6nextHopsAttribute))
+			fmt.Sprintf(`advertise_ipv6_next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6NextHopsAttribute))
 	}
 
 	enabledAttribute, ok := attributes["enabled"]
@@ -7528,7 +7528,7 @@ func (t L2vpnevpnType) ValueFromObject(ctx context.Context, in basetypes.ObjectV
 			fmt.Sprintf(`enabled expected to be basetypes.BoolValue, was: %T`, enabledAttribute))
 	}
 
-	prefixLimit2Attribute, ok := attributes["prefix_limit_2"]
+	prefixLimit2Attribute, ok := attributes["prefix_limit"]
 
 	if !ok {
 		diags.AddError(
@@ -7550,27 +7550,27 @@ func (t L2vpnevpnType) ValueFromObject(ctx context.Context, in basetypes.ObjectV
 		return nil, diags
 	}
 
-	return L2vpnevpnValue{
-		AdvertiseIpv6nextHops: advertiseIpv6nextHopsVal,
+	return L2VpnEvpnValue{
+		AdvertiseIpv6NextHops: advertiseIpv6NextHopsVal,
 		Enabled:               enabledVal,
 		PrefixLimit2:          prefixLimit2Val,
 		state:                 attr.ValueStateKnown,
 	}, diags
 }
 
-func NewL2vpnevpnValueNull() L2vpnevpnValue {
-	return L2vpnevpnValue{
+func NewL2VpnEvpnValueNull() L2VpnEvpnValue {
+	return L2VpnEvpnValue{
 		state: attr.ValueStateNull,
 	}
 }
 
-func NewL2vpnevpnValueUnknown() L2vpnevpnValue {
-	return L2vpnevpnValue{
+func NewL2VpnEvpnValueUnknown() L2VpnEvpnValue {
+	return L2VpnEvpnValue{
 		state: attr.ValueStateUnknown,
 	}
 }
 
-func NewL2vpnevpnValue(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) (L2vpnevpnValue, diag.Diagnostics) {
+func NewL2VpnEvpnValue(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) (L2VpnEvpnValue, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	// Reference: https://github.com/hashicorp/terraform-plugin-framework/issues/521
@@ -7581,11 +7581,11 @@ func NewL2vpnevpnValue(attributeTypes map[string]attr.Type, attributes map[strin
 
 		if !ok {
 			diags.AddError(
-				"Missing L2vpnevpnValue Attribute Value",
-				"While creating a L2vpnevpnValue value, a missing attribute value was detected. "+
-					"A L2vpnevpnValue must contain values for all attributes, even if null or unknown. "+
+				"Missing L2VpnEvpnValue Attribute Value",
+				"While creating a L2VpnEvpnValue value, a missing attribute value was detected. "+
+					"A L2VpnEvpnValue must contain values for all attributes, even if null or unknown. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("L2vpnevpnValue Attribute Name (%s) Expected Type: %s", name, attributeType.String()),
+					fmt.Sprintf("L2VpnEvpnValue Attribute Name (%s) Expected Type: %s", name, attributeType.String()),
 			)
 
 			continue
@@ -7593,12 +7593,12 @@ func NewL2vpnevpnValue(attributeTypes map[string]attr.Type, attributes map[strin
 
 		if !attributeType.Equal(attribute.Type(ctx)) {
 			diags.AddError(
-				"Invalid L2vpnevpnValue Attribute Type",
-				"While creating a L2vpnevpnValue value, an invalid attribute value was detected. "+
-					"A L2vpnevpnValue must use a matching attribute type for the value. "+
+				"Invalid L2VpnEvpnValue Attribute Type",
+				"While creating a L2VpnEvpnValue value, an invalid attribute value was detected. "+
+					"A L2VpnEvpnValue must use a matching attribute type for the value. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("L2vpnevpnValue Attribute Name (%s) Expected Type: %s\n", name, attributeType.String())+
-					fmt.Sprintf("L2vpnevpnValue Attribute Name (%s) Given Type: %s", name, attribute.Type(ctx)),
+					fmt.Sprintf("L2VpnEvpnValue Attribute Name (%s) Expected Type: %s\n", name, attributeType.String())+
+					fmt.Sprintf("L2VpnEvpnValue Attribute Name (%s) Given Type: %s", name, attribute.Type(ctx)),
 			)
 		}
 	}
@@ -7608,35 +7608,35 @@ func NewL2vpnevpnValue(attributeTypes map[string]attr.Type, attributes map[strin
 
 		if !ok {
 			diags.AddError(
-				"Extra L2vpnevpnValue Attribute Value",
-				"While creating a L2vpnevpnValue value, an extra attribute value was detected. "+
-					"A L2vpnevpnValue must not contain values beyond the expected attribute types. "+
+				"Extra L2VpnEvpnValue Attribute Value",
+				"While creating a L2VpnEvpnValue value, an extra attribute value was detected. "+
+					"A L2VpnEvpnValue must not contain values beyond the expected attribute types. "+
 					"This is always an issue with the provider and should be reported to the provider developers.\n\n"+
-					fmt.Sprintf("Extra L2vpnevpnValue Attribute Name: %s", name),
+					fmt.Sprintf("Extra L2VpnEvpnValue Attribute Name: %s", name),
 			)
 		}
 	}
 
 	if diags.HasError() {
-		return NewL2vpnevpnValueUnknown(), diags
+		return NewL2VpnEvpnValueUnknown(), diags
 	}
 
-	advertiseIpv6nextHopsAttribute, ok := attributes["advertise_ipv6next_hops"]
+	advertiseIpv6NextHopsAttribute, ok := attributes["advertise_ipv6_next_hops"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`advertise_ipv6next_hops is missing from object`)
+			`advertise_ipv6_next_hops is missing from object`)
 
-		return NewL2vpnevpnValueUnknown(), diags
+		return NewL2VpnEvpnValueUnknown(), diags
 	}
 
-	advertiseIpv6nextHopsVal, ok := advertiseIpv6nextHopsAttribute.(basetypes.BoolValue)
+	advertiseIpv6NextHopsVal, ok := advertiseIpv6NextHopsAttribute.(basetypes.BoolValue)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`advertise_ipv6next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6nextHopsAttribute))
+			fmt.Sprintf(`advertise_ipv6_next_hops expected to be basetypes.BoolValue, was: %T`, advertiseIpv6NextHopsAttribute))
 	}
 
 	enabledAttribute, ok := attributes["enabled"]
@@ -7646,7 +7646,7 @@ func NewL2vpnevpnValue(attributeTypes map[string]attr.Type, attributes map[strin
 			"Attribute Missing",
 			`enabled is missing from object`)
 
-		return NewL2vpnevpnValueUnknown(), diags
+		return NewL2VpnEvpnValueUnknown(), diags
 	}
 
 	enabledVal, ok := enabledAttribute.(basetypes.BoolValue)
@@ -7657,14 +7657,14 @@ func NewL2vpnevpnValue(attributeTypes map[string]attr.Type, attributes map[strin
 			fmt.Sprintf(`enabled expected to be basetypes.BoolValue, was: %T`, enabledAttribute))
 	}
 
-	prefixLimit2Attribute, ok := attributes["prefix_limit_2"]
+	prefixLimit2Attribute, ok := attributes["prefix_limit"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
 			`prefix_limit_2 is missing from object`)
 
-		return NewL2vpnevpnValueUnknown(), diags
+		return NewL2VpnEvpnValueUnknown(), diags
 	}
 
 	prefixLimit2Val, ok := prefixLimit2Attribute.(basetypes.ObjectValue)
@@ -7676,19 +7676,19 @@ func NewL2vpnevpnValue(attributeTypes map[string]attr.Type, attributes map[strin
 	}
 
 	if diags.HasError() {
-		return NewL2vpnevpnValueUnknown(), diags
+		return NewL2VpnEvpnValueUnknown(), diags
 	}
 
-	return L2vpnevpnValue{
-		AdvertiseIpv6nextHops: advertiseIpv6nextHopsVal,
+	return L2VpnEvpnValue{
+		AdvertiseIpv6NextHops: advertiseIpv6NextHopsVal,
 		Enabled:               enabledVal,
 		PrefixLimit2:          prefixLimit2Val,
 		state:                 attr.ValueStateKnown,
 	}, diags
 }
 
-func NewL2vpnevpnValueMust(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) L2vpnevpnValue {
-	object, diags := NewL2vpnevpnValue(attributeTypes, attributes)
+func NewL2VpnEvpnValueMust(attributeTypes map[string]attr.Type, attributes map[string]attr.Value) L2VpnEvpnValue {
+	object, diags := NewL2VpnEvpnValue(attributeTypes, attributes)
 
 	if diags.HasError() {
 		// This could potentially be added to the diag package.
@@ -7702,15 +7702,15 @@ func NewL2vpnevpnValueMust(attributeTypes map[string]attr.Type, attributes map[s
 				diagnostic.Detail()))
 		}
 
-		panic("NewL2vpnevpnValueMust received error(s): " + strings.Join(diagsStrings, "\n"))
+		panic("NewL2VpnEvpnValueMust received error(s): " + strings.Join(diagsStrings, "\n"))
 	}
 
 	return object
 }
 
-func (t L2vpnevpnType) ValueFromTerraform(ctx context.Context, in tftypes.Value) (attr.Value, error) {
+func (t L2VpnEvpnType) ValueFromTerraform(ctx context.Context, in tftypes.Value) (attr.Value, error) {
 	if in.Type() == nil {
-		return NewL2vpnevpnValueNull(), nil
+		return NewL2VpnEvpnValueNull(), nil
 	}
 
 	if !in.Type().Equal(t.TerraformType(ctx)) {
@@ -7718,11 +7718,11 @@ func (t L2vpnevpnType) ValueFromTerraform(ctx context.Context, in tftypes.Value)
 	}
 
 	if !in.IsKnown() {
-		return NewL2vpnevpnValueUnknown(), nil
+		return NewL2VpnEvpnValueUnknown(), nil
 	}
 
 	if in.IsNull() {
-		return NewL2vpnevpnValueNull(), nil
+		return NewL2VpnEvpnValueNull(), nil
 	}
 
 	attributes := map[string]attr.Value{}
@@ -7745,31 +7745,31 @@ func (t L2vpnevpnType) ValueFromTerraform(ctx context.Context, in tftypes.Value)
 		attributes[k] = a
 	}
 
-	return NewL2vpnevpnValueMust(L2vpnevpnValue{}.AttributeTypes(ctx), attributes), nil
+	return NewL2VpnEvpnValueMust(L2VpnEvpnValue{}.AttributeTypes(ctx), attributes), nil
 }
 
-func (t L2vpnevpnType) ValueType(ctx context.Context) attr.Value {
-	return L2vpnevpnValue{}
+func (t L2VpnEvpnType) ValueType(ctx context.Context) attr.Value {
+	return L2VpnEvpnValue{}
 }
 
-var _ basetypes.ObjectValuable = L2vpnevpnValue{}
+var _ basetypes.ObjectValuable = L2VpnEvpnValue{}
 
-type L2vpnevpnValue struct {
-	AdvertiseIpv6nextHops basetypes.BoolValue   `tfsdk:"advertise_ipv6next_hops"`
+type L2VpnEvpnValue struct {
+	AdvertiseIpv6NextHops basetypes.BoolValue   `tfsdk:"advertise_ipv6_next_hops"`
 	Enabled               basetypes.BoolValue   `tfsdk:"enabled"`
-	PrefixLimit2          basetypes.ObjectValue `tfsdk:"prefix_limit_2"`
+	PrefixLimit2          basetypes.ObjectValue `tfsdk:"prefix_limit"`
 	state                 attr.ValueState
 }
 
-func (v L2vpnevpnValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
+func (v L2VpnEvpnValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error) {
 	attrTypes := make(map[string]tftypes.Type, 3)
 
 	var val tftypes.Value
 	var err error
 
-	attrTypes["advertise_ipv6next_hops"] = basetypes.BoolType{}.TerraformType(ctx)
+	attrTypes["advertise_ipv6_next_hops"] = basetypes.BoolType{}.TerraformType(ctx)
 	attrTypes["enabled"] = basetypes.BoolType{}.TerraformType(ctx)
-	attrTypes["prefix_limit_2"] = basetypes.ObjectType{
+	attrTypes["prefix_limit"] = basetypes.ObjectType{
 		AttrTypes: PrefixLimit2Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 
@@ -7779,13 +7779,13 @@ func (v L2vpnevpnValue) ToTerraformValue(ctx context.Context) (tftypes.Value, er
 	case attr.ValueStateKnown:
 		vals := make(map[string]tftypes.Value, 3)
 
-		val, err = v.AdvertiseIpv6nextHops.ToTerraformValue(ctx)
+		val, err = v.AdvertiseIpv6NextHops.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["advertise_ipv6next_hops"] = val
+		vals["advertise_ipv6_next_hops"] = val
 
 		val, err = v.Enabled.ToTerraformValue(ctx)
 
@@ -7801,7 +7801,7 @@ func (v L2vpnevpnValue) ToTerraformValue(ctx context.Context) (tftypes.Value, er
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["prefix_limit_2"] = val
+		vals["prefix_limit"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -7817,19 +7817,19 @@ func (v L2vpnevpnValue) ToTerraformValue(ctx context.Context) (tftypes.Value, er
 	}
 }
 
-func (v L2vpnevpnValue) IsNull() bool {
+func (v L2VpnEvpnValue) IsNull() bool {
 	return v.state == attr.ValueStateNull
 }
 
-func (v L2vpnevpnValue) IsUnknown() bool {
+func (v L2VpnEvpnValue) IsUnknown() bool {
 	return v.state == attr.ValueStateUnknown
 }
 
-func (v L2vpnevpnValue) String() string {
-	return "L2vpnevpnValue"
+func (v L2VpnEvpnValue) String() string {
+	return "L2VpnEvpnValue"
 }
 
-func (v L2vpnevpnValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, diag.Diagnostics) {
+func (v L2VpnEvpnValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
 	var prefixLimit2 basetypes.ObjectValue
@@ -7854,9 +7854,9 @@ func (v L2vpnevpnValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValu
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"advertise_ipv6next_hops": basetypes.BoolType{},
-		"enabled":                 basetypes.BoolType{},
-		"prefix_limit_2": basetypes.ObjectType{
+		"advertise_ipv6_next_hops": basetypes.BoolType{},
+		"enabled":                  basetypes.BoolType{},
+		"prefix_limit": basetypes.ObjectType{
 			AttrTypes: PrefixLimit2Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -7872,16 +7872,16 @@ func (v L2vpnevpnValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValu
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"advertise_ipv6next_hops": v.AdvertiseIpv6nextHops,
-			"enabled":                 v.Enabled,
-			"prefix_limit_2":          prefixLimit2,
+			"advertise_ipv6_next_hops": v.AdvertiseIpv6NextHops,
+			"enabled":                  v.Enabled,
+			"prefix_limit":             prefixLimit2,
 		})
 
 	return objVal, diags
 }
 
-func (v L2vpnevpnValue) Equal(o attr.Value) bool {
-	other, ok := o.(L2vpnevpnValue)
+func (v L2VpnEvpnValue) Equal(o attr.Value) bool {
+	other, ok := o.(L2VpnEvpnValue)
 
 	if !ok {
 		return false
@@ -7895,7 +7895,7 @@ func (v L2vpnevpnValue) Equal(o attr.Value) bool {
 		return true
 	}
 
-	if !v.AdvertiseIpv6nextHops.Equal(other.AdvertiseIpv6nextHops) {
+	if !v.AdvertiseIpv6NextHops.Equal(other.AdvertiseIpv6NextHops) {
 		return false
 	}
 
@@ -7910,19 +7910,19 @@ func (v L2vpnevpnValue) Equal(o attr.Value) bool {
 	return true
 }
 
-func (v L2vpnevpnValue) Type(ctx context.Context) attr.Type {
-	return L2vpnevpnType{
+func (v L2VpnEvpnValue) Type(ctx context.Context) attr.Type {
+	return L2VpnEvpnType{
 		basetypes.ObjectType{
 			AttrTypes: v.AttributeTypes(ctx),
 		},
 	}
 }
 
-func (v L2vpnevpnValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
+func (v L2VpnEvpnValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"advertise_ipv6next_hops": basetypes.BoolType{},
-		"enabled":                 basetypes.BoolType{},
-		"prefix_limit_2": basetypes.ObjectType{
+		"advertise_ipv6_next_hops": basetypes.BoolType{},
+		"enabled":                  basetypes.BoolType{},
+		"prefix_limit": basetypes.ObjectType{
 			AttrTypes: PrefixLimit2Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -7953,7 +7953,7 @@ func (t PrefixLimit2Type) ValueFromObject(ctx context.Context, in basetypes.Obje
 
 	attributes := in.Attributes()
 
-	prefixLimitAccepted2Attribute, ok := attributes["prefix_limit_accepted_2"]
+	prefixLimitAccepted2Attribute, ok := attributes["prefix_limit_accepted"]
 
 	if !ok {
 		diags.AddError(
@@ -7971,7 +7971,7 @@ func (t PrefixLimit2Type) ValueFromObject(ctx context.Context, in basetypes.Obje
 			fmt.Sprintf(`prefix_limit_accepted_2 expected to be basetypes.ObjectValue, was: %T`, prefixLimitAccepted2Attribute))
 	}
 
-	prefixLimitReceived2Attribute, ok := attributes["prefix_limit_received_2"]
+	prefixLimitReceived2Attribute, ok := attributes["prefix_limit_received"]
 
 	if !ok {
 		diags.AddError(
@@ -8063,7 +8063,7 @@ func NewPrefixLimit2Value(attributeTypes map[string]attr.Type, attributes map[st
 		return NewPrefixLimit2ValueUnknown(), diags
 	}
 
-	prefixLimitAccepted2Attribute, ok := attributes["prefix_limit_accepted_2"]
+	prefixLimitAccepted2Attribute, ok := attributes["prefix_limit_accepted"]
 
 	if !ok {
 		diags.AddError(
@@ -8081,7 +8081,7 @@ func NewPrefixLimit2Value(attributeTypes map[string]attr.Type, attributes map[st
 			fmt.Sprintf(`prefix_limit_accepted_2 expected to be basetypes.ObjectValue, was: %T`, prefixLimitAccepted2Attribute))
 	}
 
-	prefixLimitReceived2Attribute, ok := attributes["prefix_limit_received_2"]
+	prefixLimitReceived2Attribute, ok := attributes["prefix_limit_received"]
 
 	if !ok {
 		diags.AddError(
@@ -8178,8 +8178,8 @@ func (t PrefixLimit2Type) ValueType(ctx context.Context) attr.Value {
 var _ basetypes.ObjectValuable = PrefixLimit2Value{}
 
 type PrefixLimit2Value struct {
-	PrefixLimitAccepted2 basetypes.ObjectValue `tfsdk:"prefix_limit_accepted_2"`
-	PrefixLimitReceived2 basetypes.ObjectValue `tfsdk:"prefix_limit_received_2"`
+	PrefixLimitAccepted2 basetypes.ObjectValue `tfsdk:"prefix_limit_accepted"`
+	PrefixLimitReceived2 basetypes.ObjectValue `tfsdk:"prefix_limit_received"`
 	state                attr.ValueState
 }
 
@@ -8189,10 +8189,10 @@ func (v PrefixLimit2Value) ToTerraformValue(ctx context.Context) (tftypes.Value,
 	var val tftypes.Value
 	var err error
 
-	attrTypes["prefix_limit_accepted_2"] = basetypes.ObjectType{
+	attrTypes["prefix_limit_accepted"] = basetypes.ObjectType{
 		AttrTypes: PrefixLimitAccepted2Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
-	attrTypes["prefix_limit_received_2"] = basetypes.ObjectType{
+	attrTypes["prefix_limit_received"] = basetypes.ObjectType{
 		AttrTypes: PrefixLimitReceived2Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 
@@ -8208,7 +8208,7 @@ func (v PrefixLimit2Value) ToTerraformValue(ctx context.Context) (tftypes.Value,
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["prefix_limit_accepted_2"] = val
+		vals["prefix_limit_accepted"] = val
 
 		val, err = v.PrefixLimitReceived2.ToTerraformValue(ctx)
 
@@ -8216,7 +8216,7 @@ func (v PrefixLimit2Value) ToTerraformValue(ctx context.Context) (tftypes.Value,
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["prefix_limit_received_2"] = val
+		vals["prefix_limit_received"] = val
 
 		if err := tftypes.ValidateValue(objectType, vals); err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
@@ -8290,10 +8290,10 @@ func (v PrefixLimit2Value) ToObjectValue(ctx context.Context) (basetypes.ObjectV
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"prefix_limit_accepted_2": basetypes.ObjectType{
+		"prefix_limit_accepted": basetypes.ObjectType{
 			AttrTypes: PrefixLimitAccepted2Value{}.AttributeTypes(ctx),
 		},
-		"prefix_limit_received_2": basetypes.ObjectType{
+		"prefix_limit_received": basetypes.ObjectType{
 			AttrTypes: PrefixLimitReceived2Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -8309,8 +8309,8 @@ func (v PrefixLimit2Value) ToObjectValue(ctx context.Context) (basetypes.ObjectV
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"prefix_limit_accepted_2": prefixLimitAccepted2,
-			"prefix_limit_received_2": prefixLimitReceived2,
+			"prefix_limit_accepted": prefixLimitAccepted2,
+			"prefix_limit_received": prefixLimitReceived2,
 		})
 
 	return objVal, diags
@@ -8352,10 +8352,10 @@ func (v PrefixLimit2Value) Type(ctx context.Context) attr.Type {
 
 func (v PrefixLimit2Value) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"prefix_limit_accepted_2": basetypes.ObjectType{
+		"prefix_limit_accepted": basetypes.ObjectType{
 			AttrTypes: PrefixLimitAccepted2Value{}.AttributeTypes(ctx),
 		},
-		"prefix_limit_received_2": basetypes.ObjectType{
+		"prefix_limit_received": basetypes.ObjectType{
 			AttrTypes: PrefixLimitReceived2Value{}.AttributeTypes(ctx),
 		},
 	}
@@ -10961,40 +10961,40 @@ func (t StatusType) ValueFromObject(ctx context.Context, in basetypes.ObjectValu
 			fmt.Sprintf(`last_change expected to be basetypes.StringValue, was: %T`, lastChangeAttribute))
 	}
 
-	numRouteReflectorClientBgppeersAttribute, ok := attributes["num_route_reflector_client_bgppeers"]
+	numRouteReflectorClientBgpPeersAttribute, ok := attributes["num_route_reflector_client_bgp_peers"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`num_route_reflector_client_bgppeers is missing from object`)
+			`num_route_reflector_client_bgp_peers is missing from object`)
 
 		return nil, diags
 	}
 
-	numRouteReflectorClientBgppeersVal, ok := numRouteReflectorClientBgppeersAttribute.(basetypes.Int64Value)
+	numRouteReflectorClientBgpPeersVal, ok := numRouteReflectorClientBgpPeersAttribute.(basetypes.Int64Value)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`num_route_reflector_client_bgppeers expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgppeersAttribute))
+			fmt.Sprintf(`num_route_reflector_client_bgp_peers expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgpPeersAttribute))
 	}
 
-	numRouteReflectorClientBgppeersOperDownAttribute, ok := attributes["num_route_reflector_client_bgppeers_oper_down"]
+	numRouteReflectorClientBgpPeersOperDownAttribute, ok := attributes["num_route_reflector_client_bgp_peers_oper_down"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`num_route_reflector_client_bgppeers_oper_down is missing from object`)
+			`num_route_reflector_client_bgp_peers_oper_down is missing from object`)
 
 		return nil, diags
 	}
 
-	numRouteReflectorClientBgppeersOperDownVal, ok := numRouteReflectorClientBgppeersOperDownAttribute.(basetypes.Int64Value)
+	numRouteReflectorClientBgpPeersOperDownVal, ok := numRouteReflectorClientBgpPeersOperDownAttribute.(basetypes.Int64Value)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`num_route_reflector_client_bgppeers_oper_down expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgppeersOperDownAttribute))
+			fmt.Sprintf(`num_route_reflector_client_bgp_peers_oper_down expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgpPeersOperDownAttribute))
 	}
 
 	operDownRouteReflectorClientPeersAttribute, ok := attributes["oper_down_route_reflector_client_peers"]
@@ -11041,8 +11041,8 @@ func (t StatusType) ValueFromObject(ctx context.Context, in basetypes.ObjectValu
 		Health:                                  healthVal,
 		HealthScoreReason:                       healthScoreReasonVal,
 		LastChange:                              lastChangeVal,
-		NumRouteReflectorClientBgppeers:         numRouteReflectorClientBgppeersVal,
-		NumRouteReflectorClientBgppeersOperDown: numRouteReflectorClientBgppeersOperDownVal,
+		NumRouteReflectorClientBgpPeers:         numRouteReflectorClientBgpPeersVal,
+		NumRouteReflectorClientBgpPeersOperDown: numRouteReflectorClientBgpPeersOperDownVal,
 		OperDownRouteReflectorClientPeers:       operDownRouteReflectorClientPeersVal,
 		OperationalState:                        operationalStateVal,
 		state:                                   attr.ValueStateKnown,
@@ -11166,40 +11166,40 @@ func NewStatusValue(attributeTypes map[string]attr.Type, attributes map[string]a
 			fmt.Sprintf(`last_change expected to be basetypes.StringValue, was: %T`, lastChangeAttribute))
 	}
 
-	numRouteReflectorClientBgppeersAttribute, ok := attributes["num_route_reflector_client_bgppeers"]
+	numRouteReflectorClientBgpPeersAttribute, ok := attributes["num_route_reflector_client_bgp_peers"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`num_route_reflector_client_bgppeers is missing from object`)
+			`num_route_reflector_client_bgp_peers is missing from object`)
 
 		return NewStatusValueUnknown(), diags
 	}
 
-	numRouteReflectorClientBgppeersVal, ok := numRouteReflectorClientBgppeersAttribute.(basetypes.Int64Value)
+	numRouteReflectorClientBgpPeersVal, ok := numRouteReflectorClientBgpPeersAttribute.(basetypes.Int64Value)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`num_route_reflector_client_bgppeers expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgppeersAttribute))
+			fmt.Sprintf(`num_route_reflector_client_bgp_peers expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgpPeersAttribute))
 	}
 
-	numRouteReflectorClientBgppeersOperDownAttribute, ok := attributes["num_route_reflector_client_bgppeers_oper_down"]
+	numRouteReflectorClientBgpPeersOperDownAttribute, ok := attributes["num_route_reflector_client_bgp_peers_oper_down"]
 
 	if !ok {
 		diags.AddError(
 			"Attribute Missing",
-			`num_route_reflector_client_bgppeers_oper_down is missing from object`)
+			`num_route_reflector_client_bgp_peers_oper_down is missing from object`)
 
 		return NewStatusValueUnknown(), diags
 	}
 
-	numRouteReflectorClientBgppeersOperDownVal, ok := numRouteReflectorClientBgppeersOperDownAttribute.(basetypes.Int64Value)
+	numRouteReflectorClientBgpPeersOperDownVal, ok := numRouteReflectorClientBgpPeersOperDownAttribute.(basetypes.Int64Value)
 
 	if !ok {
 		diags.AddError(
 			"Attribute Wrong Type",
-			fmt.Sprintf(`num_route_reflector_client_bgppeers_oper_down expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgppeersOperDownAttribute))
+			fmt.Sprintf(`num_route_reflector_client_bgp_peers_oper_down expected to be basetypes.Int64Value, was: %T`, numRouteReflectorClientBgpPeersOperDownAttribute))
 	}
 
 	operDownRouteReflectorClientPeersAttribute, ok := attributes["oper_down_route_reflector_client_peers"]
@@ -11246,8 +11246,8 @@ func NewStatusValue(attributeTypes map[string]attr.Type, attributes map[string]a
 		Health:                                  healthVal,
 		HealthScoreReason:                       healthScoreReasonVal,
 		LastChange:                              lastChangeVal,
-		NumRouteReflectorClientBgppeers:         numRouteReflectorClientBgppeersVal,
-		NumRouteReflectorClientBgppeersOperDown: numRouteReflectorClientBgppeersOperDownVal,
+		NumRouteReflectorClientBgpPeers:         numRouteReflectorClientBgpPeersVal,
+		NumRouteReflectorClientBgpPeersOperDown: numRouteReflectorClientBgpPeersOperDownVal,
 		OperDownRouteReflectorClientPeers:       operDownRouteReflectorClientPeersVal,
 		OperationalState:                        operationalStateVal,
 		state:                                   attr.ValueStateKnown,
@@ -11325,8 +11325,8 @@ type StatusValue struct {
 	Health                                  basetypes.Int64Value  `tfsdk:"health"`
 	HealthScoreReason                       basetypes.StringValue `tfsdk:"health_score_reason"`
 	LastChange                              basetypes.StringValue `tfsdk:"last_change"`
-	NumRouteReflectorClientBgppeers         basetypes.Int64Value  `tfsdk:"num_route_reflector_client_bgppeers"`
-	NumRouteReflectorClientBgppeersOperDown basetypes.Int64Value  `tfsdk:"num_route_reflector_client_bgppeers_oper_down"`
+	NumRouteReflectorClientBgpPeers         basetypes.Int64Value  `tfsdk:"num_route_reflector_client_bgp_peers"`
+	NumRouteReflectorClientBgpPeersOperDown basetypes.Int64Value  `tfsdk:"num_route_reflector_client_bgp_peers_oper_down"`
 	OperDownRouteReflectorClientPeers       basetypes.ListValue   `tfsdk:"oper_down_route_reflector_client_peers"`
 	OperationalState                        basetypes.StringValue `tfsdk:"operational_state"`
 	state                                   attr.ValueState
@@ -11341,8 +11341,8 @@ func (v StatusValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error
 	attrTypes["health"] = basetypes.Int64Type{}.TerraformType(ctx)
 	attrTypes["health_score_reason"] = basetypes.StringType{}.TerraformType(ctx)
 	attrTypes["last_change"] = basetypes.StringType{}.TerraformType(ctx)
-	attrTypes["num_route_reflector_client_bgppeers"] = basetypes.Int64Type{}.TerraformType(ctx)
-	attrTypes["num_route_reflector_client_bgppeers_oper_down"] = basetypes.Int64Type{}.TerraformType(ctx)
+	attrTypes["num_route_reflector_client_bgp_peers"] = basetypes.Int64Type{}.TerraformType(ctx)
+	attrTypes["num_route_reflector_client_bgp_peers_oper_down"] = basetypes.Int64Type{}.TerraformType(ctx)
 	attrTypes["oper_down_route_reflector_client_peers"] = basetypes.ListType{
 		ElemType: types.StringType,
 	}.TerraformType(ctx)
@@ -11378,21 +11378,21 @@ func (v StatusValue) ToTerraformValue(ctx context.Context) (tftypes.Value, error
 
 		vals["last_change"] = val
 
-		val, err = v.NumRouteReflectorClientBgppeers.ToTerraformValue(ctx)
+		val, err = v.NumRouteReflectorClientBgpPeers.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["num_route_reflector_client_bgppeers"] = val
+		vals["num_route_reflector_client_bgp_peers"] = val
 
-		val, err = v.NumRouteReflectorClientBgppeersOperDown.ToTerraformValue(ctx)
+		val, err = v.NumRouteReflectorClientBgpPeersOperDown.ToTerraformValue(ctx)
 
 		if err != nil {
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["num_route_reflector_client_bgppeers_oper_down"] = val
+		vals["num_route_reflector_client_bgp_peers_oper_down"] = val
 
 		val, err = v.OperDownRouteReflectorClientPeers.ToTerraformValue(ctx)
 
@@ -11453,11 +11453,11 @@ func (v StatusValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, 
 
 	if diags.HasError() {
 		return types.ObjectUnknown(map[string]attr.Type{
-			"health":                              basetypes.Int64Type{},
-			"health_score_reason":                 basetypes.StringType{},
-			"last_change":                         basetypes.StringType{},
-			"num_route_reflector_client_bgppeers": basetypes.Int64Type{},
-			"num_route_reflector_client_bgppeers_oper_down": basetypes.Int64Type{},
+			"health":                               basetypes.Int64Type{},
+			"health_score_reason":                  basetypes.StringType{},
+			"last_change":                          basetypes.StringType{},
+			"num_route_reflector_client_bgp_peers": basetypes.Int64Type{},
+			"num_route_reflector_client_bgp_peers_oper_down": basetypes.Int64Type{},
 			"oper_down_route_reflector_client_peers": basetypes.ListType{
 				ElemType: types.StringType,
 			},
@@ -11466,11 +11466,11 @@ func (v StatusValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, 
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"health":                              basetypes.Int64Type{},
-		"health_score_reason":                 basetypes.StringType{},
-		"last_change":                         basetypes.StringType{},
-		"num_route_reflector_client_bgppeers": basetypes.Int64Type{},
-		"num_route_reflector_client_bgppeers_oper_down": basetypes.Int64Type{},
+		"health":                               basetypes.Int64Type{},
+		"health_score_reason":                  basetypes.StringType{},
+		"last_change":                          basetypes.StringType{},
+		"num_route_reflector_client_bgp_peers": basetypes.Int64Type{},
+		"num_route_reflector_client_bgp_peers_oper_down": basetypes.Int64Type{},
 		"oper_down_route_reflector_client_peers": basetypes.ListType{
 			ElemType: types.StringType,
 		},
@@ -11488,13 +11488,13 @@ func (v StatusValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue, 
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"health":                              v.Health,
-			"health_score_reason":                 v.HealthScoreReason,
-			"last_change":                         v.LastChange,
-			"num_route_reflector_client_bgppeers": v.NumRouteReflectorClientBgppeers,
-			"num_route_reflector_client_bgppeers_oper_down": v.NumRouteReflectorClientBgppeersOperDown,
-			"oper_down_route_reflector_client_peers":        operDownRouteReflectorClientPeersVal,
-			"operational_state":                             v.OperationalState,
+			"health":                               v.Health,
+			"health_score_reason":                  v.HealthScoreReason,
+			"last_change":                          v.LastChange,
+			"num_route_reflector_client_bgp_peers": v.NumRouteReflectorClientBgpPeers,
+			"num_route_reflector_client_bgp_peers_oper_down": v.NumRouteReflectorClientBgpPeersOperDown,
+			"oper_down_route_reflector_client_peers":         operDownRouteReflectorClientPeersVal,
+			"operational_state":                              v.OperationalState,
 		})
 
 	return objVal, diags
@@ -11527,11 +11527,11 @@ func (v StatusValue) Equal(o attr.Value) bool {
 		return false
 	}
 
-	if !v.NumRouteReflectorClientBgppeers.Equal(other.NumRouteReflectorClientBgppeers) {
+	if !v.NumRouteReflectorClientBgpPeers.Equal(other.NumRouteReflectorClientBgpPeers) {
 		return false
 	}
 
-	if !v.NumRouteReflectorClientBgppeersOperDown.Equal(other.NumRouteReflectorClientBgppeersOperDown) {
+	if !v.NumRouteReflectorClientBgpPeersOperDown.Equal(other.NumRouteReflectorClientBgpPeersOperDown) {
 		return false
 	}
 
@@ -11556,11 +11556,11 @@ func (v StatusValue) Type(ctx context.Context) attr.Type {
 
 func (v StatusValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"health":                              basetypes.Int64Type{},
-		"health_score_reason":                 basetypes.StringType{},
-		"last_change":                         basetypes.StringType{},
-		"num_route_reflector_client_bgppeers": basetypes.Int64Type{},
-		"num_route_reflector_client_bgppeers_oper_down": basetypes.Int64Type{},
+		"health":                               basetypes.Int64Type{},
+		"health_score_reason":                  basetypes.StringType{},
+		"last_change":                          basetypes.StringType{},
+		"num_route_reflector_client_bgp_peers": basetypes.Int64Type{},
+		"num_route_reflector_client_bgp_peers_oper_down": basetypes.Int64Type{},
 		"oper_down_route_reflector_client_peers": basetypes.ListType{
 			ElemType: types.StringType,
 		},

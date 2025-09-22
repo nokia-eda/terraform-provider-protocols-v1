@@ -110,7 +110,7 @@ func DefaultStaticRouteListDataSourceSchema(ctx context.Context) schema.Schema {
 										"nexthops": schema.ListNestedAttribute{
 											NestedObject: schema.NestedAttributeObject{
 												Attributes: map[string]schema.Attribute{
-													"bfd_1": schema.SingleNestedAttribute{
+													"bfd": schema.SingleNestedAttribute{
 														Attributes: map[string]schema.Attribute{
 															"enabled": schema.BoolAttribute{
 																Optional:            true,
@@ -243,7 +243,7 @@ func DefaultStaticRouteListDataSourceSchema(ctx context.Context) schema.Schema {
 			"kind": schema.StringAttribute{
 				Computed: true,
 			},
-			"labelselector": schema.StringAttribute{
+			"label_selector": schema.StringAttribute{
 				Optional:            true,
 				Computed:            true,
 				Description:         "a label selector string to filter the results based on CR labels",
@@ -264,7 +264,7 @@ type DefaultStaticRouteListModel struct {
 	Filter        types.String `tfsdk:"filter"`
 	Items         types.List   `tfsdk:"items"`
 	Kind          types.String `tfsdk:"kind"`
-	Labelselector types.String `tfsdk:"labelselector"`
+	LabelSelector types.String `tfsdk:"label_selector"`
 	Namespace     types.String `tfsdk:"namespace"`
 }
 
@@ -3001,7 +3001,7 @@ func (t NexthopsType) ValueFromObject(ctx context.Context, in basetypes.ObjectVa
 
 	attributes := in.Attributes()
 
-	bfd1Attribute, ok := attributes["bfd_1"]
+	bfd1Attribute, ok := attributes["bfd"]
 
 	if !ok {
 		diags.AddError(
@@ -3130,7 +3130,7 @@ func NewNexthopsValue(attributeTypes map[string]attr.Type, attributes map[string
 		return NewNexthopsValueUnknown(), diags
 	}
 
-	bfd1Attribute, ok := attributes["bfd_1"]
+	bfd1Attribute, ok := attributes["bfd"]
 
 	if !ok {
 		diags.AddError(
@@ -3264,7 +3264,7 @@ func (t NexthopsType) ValueType(ctx context.Context) attr.Value {
 var _ basetypes.ObjectValuable = NexthopsValue{}
 
 type NexthopsValue struct {
-	Bfd1     basetypes.ObjectValue `tfsdk:"bfd_1"`
+	Bfd1     basetypes.ObjectValue `tfsdk:"bfd"`
 	IpPrefix basetypes.StringValue `tfsdk:"ip_prefix"`
 	Resolve  basetypes.BoolValue   `tfsdk:"resolve"`
 	state    attr.ValueState
@@ -3276,7 +3276,7 @@ func (v NexthopsValue) ToTerraformValue(ctx context.Context) (tftypes.Value, err
 	var val tftypes.Value
 	var err error
 
-	attrTypes["bfd_1"] = basetypes.ObjectType{
+	attrTypes["bfd"] = basetypes.ObjectType{
 		AttrTypes: Bfd1Value{}.AttributeTypes(ctx),
 	}.TerraformType(ctx)
 	attrTypes["ip_prefix"] = basetypes.StringType{}.TerraformType(ctx)
@@ -3294,7 +3294,7 @@ func (v NexthopsValue) ToTerraformValue(ctx context.Context) (tftypes.Value, err
 			return tftypes.NewValue(objectType, tftypes.UnknownValue), err
 		}
 
-		vals["bfd_1"] = val
+		vals["bfd"] = val
 
 		val, err = v.IpPrefix.ToTerraformValue(ctx)
 
@@ -3363,7 +3363,7 @@ func (v NexthopsValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue
 	}
 
 	attributeTypes := map[string]attr.Type{
-		"bfd_1": basetypes.ObjectType{
+		"bfd": basetypes.ObjectType{
 			AttrTypes: Bfd1Value{}.AttributeTypes(ctx),
 		},
 		"ip_prefix": basetypes.StringType{},
@@ -3381,7 +3381,7 @@ func (v NexthopsValue) ToObjectValue(ctx context.Context) (basetypes.ObjectValue
 	objVal, diags := types.ObjectValue(
 		attributeTypes,
 		map[string]attr.Value{
-			"bfd_1":     bfd1,
+			"bfd":       bfd1,
 			"ip_prefix": v.IpPrefix,
 			"resolve":   v.Resolve,
 		})
@@ -3429,7 +3429,7 @@ func (v NexthopsValue) Type(ctx context.Context) attr.Type {
 
 func (v NexthopsValue) AttributeTypes(ctx context.Context) map[string]attr.Type {
 	return map[string]attr.Type{
-		"bfd_1": basetypes.ObjectType{
+		"bfd": basetypes.ObjectType{
 			AttrTypes: Bfd1Value{}.AttributeTypes(ctx),
 		},
 		"ip_prefix": basetypes.StringType{},

@@ -47,10 +47,10 @@ Optional:
 - `import_policy` (List of String) Reference to a Policy CR that will be used to filter routes received from peers.
 - `interface` (String) Reference to a RoutedInterface or IrbInterface resource whose IP will be used as a source IP for the BGP session.
 - `interface_kind` (String) InterfaceReference type defines whether the provided Reference is a RoutedInterface or IrbInterface.
-- `ipv4client_selector` (List of String) Label selector used to select the RouteReflectorClients to which the iBGP sessions are established for IPv4.
-- `ipv4unicast` (Attributes) Parameters relating to the IPv4 unicast AFI/SAFI. (see [below for nested schema](#nestedatt--spec--ipv4unicast))
-- `ipv6client_selector` (List of String) Label selector used to select the RouteReflectorClients to which the iBGP sessions are established for IPv6.
-- `ipv6unicast` (Attributes) Parameters relating to the IPv6 unicast AFI/SAFI. (see [below for nested schema](#nestedatt--spec--ipv6unicast))
+- `ipv4_client_selector` (List of String) Label selector used to select the RouteReflectorClients to which the iBGP sessions are established for IPv4.
+- `ipv4_unicast` (Attributes) Parameters relating to the IPv4 unicast AFI/SAFI. (see [below for nested schema](#nestedatt--spec--ipv4_unicast))
+- `ipv6_client_selector` (List of String) Label selector used to select the RouteReflectorClients to which the iBGP sessions are established for IPv6.
+- `ipv6_unicast` (Attributes) Parameters relating to the IPv6 unicast AFI/SAFI. (see [below for nested schema](#nestedatt--spec--ipv6_unicast))
 - `keychain` (String) Reference to a Keychain resource that will be used for authentication with the BGP peer.
 - `local_as` (Attributes) The local autonomous system number advertised to peers. (see [below for nested schema](#nestedatt--spec--local_as))
 - `peer_as` (Attributes) The autonomous system number expected from peers. (see [below for nested schema](#nestedatt--spec--peer_as))
@@ -74,30 +74,30 @@ Optional:
 
 - `ignore_peer_as` (Boolean) If set to true then do not delete or replace a private AS number that is the same as the peer AS number.
 - `leading_only` (Boolean) If set to true then only delete or replace private AS numbers that appear before the first occurrence of a non-private ASN in the sequence of most recent ASNs in the AS path.
-- `remove_private_asmode` (String) The method by which private AS numbers are removed from the advertised AS_PATH attribute.
+- `remove_private_as_mode` (String) The method by which private AS numbers are removed from the advertised AS_PATH attribute.
 
 
 
-<a id="nestedatt--spec--ipv4unicast"></a>
-### Nested Schema for `spec.ipv4unicast`
+<a id="nestedatt--spec--ipv4_unicast"></a>
+### Nested Schema for `spec.ipv4_unicast`
 
 Optional:
 
-- `advertise_ipv6next_hops` (Boolean) Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers.
+- `advertise_ipv6_next_hops` (Boolean) Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers.
 - `enabled` (Boolean) Enables the IPv4 unicast AFISAFI.
-- `prefix_limit` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv4unicast--prefix_limit))
-- `receive_ipv6next_hops` (Boolean) Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops.
+- `prefix_limit` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv4_unicast--prefix_limit))
+- `receive_ipv6_next_hops` (Boolean) Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops.
 
-<a id="nestedatt--spec--ipv4unicast--prefix_limit"></a>
-### Nested Schema for `spec.ipv4unicast.prefix_limit`
+<a id="nestedatt--spec--ipv4_unicast--prefix_limit"></a>
+### Nested Schema for `spec.ipv4_unicast.prefix_limit`
 
 Optional:
 
-- `prefix_limit_accepted` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv4unicast--prefix_limit--prefix_limit_accepted))
-- `prefix_limit_received` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv4unicast--prefix_limit--prefix_limit_received))
+- `prefix_limit_accepted` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv4_unicast--prefix_limit--prefix_limit_accepted))
+- `prefix_limit_received` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv4_unicast--prefix_limit--prefix_limit_received))
 
-<a id="nestedatt--spec--ipv4unicast--prefix_limit--prefix_limit_accepted"></a>
-### Nested Schema for `spec.ipv4unicast.prefix_limit.prefix_limit_accepted`
+<a id="nestedatt--spec--ipv4_unicast--prefix_limit--prefix_limit_accepted"></a>
+### Nested Schema for `spec.ipv4_unicast.prefix_limit.prefix_limit_accepted`
 
 Optional:
 
@@ -106,8 +106,8 @@ Optional:
 - `warning_threshold` (Number) A percentage of the maximum number of prefixes that can be accepted before a warning is logged.
 
 
-<a id="nestedatt--spec--ipv4unicast--prefix_limit--prefix_limit_received"></a>
-### Nested Schema for `spec.ipv4unicast.prefix_limit.prefix_limit_received`
+<a id="nestedatt--spec--ipv4_unicast--prefix_limit--prefix_limit_received"></a>
+### Nested Schema for `spec.ipv4_unicast.prefix_limit.prefix_limit_received`
 
 Optional:
 
@@ -118,24 +118,24 @@ Optional:
 
 
 
-<a id="nestedatt--spec--ipv6unicast"></a>
-### Nested Schema for `spec.ipv6unicast`
+<a id="nestedatt--spec--ipv6_unicast"></a>
+### Nested Schema for `spec.ipv6_unicast`
 
 Optional:
 
 - `enabled` (Boolean) Enables the IPv6 unicast AFISAFI
-- `prefix_limit_1` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv6unicast--prefix_limit_1))
+- `prefix_limit` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv6_unicast--prefix_limit))
 
-<a id="nestedatt--spec--ipv6unicast--prefix_limit_1"></a>
-### Nested Schema for `spec.ipv6unicast.prefix_limit_1`
+<a id="nestedatt--spec--ipv6_unicast--prefix_limit"></a>
+### Nested Schema for `spec.ipv6_unicast.prefix_limit`
 
 Optional:
 
-- `prefix_limit_accepted_1` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv6unicast--prefix_limit_1--prefix_limit_accepted_1))
-- `prefix_limit_received_1` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv6unicast--prefix_limit_1--prefix_limit_received_1))
+- `prefix_limit_accepted` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv6_unicast--prefix_limit--prefix_limit_accepted))
+- `prefix_limit_received` (Attributes) (see [below for nested schema](#nestedatt--spec--ipv6_unicast--prefix_limit--prefix_limit_received))
 
-<a id="nestedatt--spec--ipv6unicast--prefix_limit_1--prefix_limit_accepted_1"></a>
-### Nested Schema for `spec.ipv6unicast.prefix_limit_1.prefix_limit_accepted_1`
+<a id="nestedatt--spec--ipv6_unicast--prefix_limit--prefix_limit_accepted"></a>
+### Nested Schema for `spec.ipv6_unicast.prefix_limit.prefix_limit_accepted`
 
 Optional:
 
@@ -144,8 +144,8 @@ Optional:
 - `warning_threshold` (Number) A percentage of the maximum number of prefixes that can be accepted before a warning is logged.
 
 
-<a id="nestedatt--spec--ipv6unicast--prefix_limit_1--prefix_limit_received_1"></a>
-### Nested Schema for `spec.ipv6unicast.prefix_limit_1.prefix_limit_received_1`
+<a id="nestedatt--spec--ipv6_unicast--prefix_limit--prefix_limit_received"></a>
+### Nested Schema for `spec.ipv6_unicast.prefix_limit.prefix_limit_received`
 
 Optional:
 
@@ -214,7 +214,7 @@ Read-Only:
 - `health` (Number) Indicates the health score of the RouteReflector.
 - `health_score_reason` (String) Indicates the reason for the health score.
 - `last_change` (String) The time when the state of the resource last changed.
-- `num_route_reflector_bgppeers` (Number) Total number of configured route reflector client peers on the route reflector.
-- `num_route_reflector_bgppeers_oper_down` (Number) Total number of configured route reflector client peers on the route reflector that are operationally down.
+- `num_route_reflector_bgp_peers` (Number) Total number of configured route reflector client peers on the route reflector.
+- `num_route_reflector_bgp_peers_oper_down` (Number) Total number of configured route reflector client peers on the route reflector that are operationally down.
 - `oper_down_route_reflector_peers` (List of String) List of route reflector BGPPeers which are operationally down.
 - `operational_state` (String) Operational state of the RouteReflector.

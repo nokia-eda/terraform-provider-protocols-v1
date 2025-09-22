@@ -48,7 +48,7 @@ Optional:
 Optional:
 
 - `default_route_reflector` (Boolean) Denotes if the route reflector is a DefaultRouteReflector or RouteReflector
-- `route_reflector_bgppeers` (List of String) A list of BGPPeers configured on the route reflector to peer with clients
+- `route_reflector_bgp_peers` (List of String) A list of BGPPeers configured on the route reflector to peer with clients
 
 
 <a id="nestedatt--status"></a>

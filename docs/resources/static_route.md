@@ -85,11 +85,11 @@ Required:
 
 Optional:
 
-- `bfd_1` (Attributes) Enables BFD to the next-hops in the group. This overrides the configuration at the group. (see [below for nested schema](#nestedatt--spec--nexthop_group--nexthops--bfd_1))
+- `bfd` (Attributes) Enables BFD to the next-hops in the group. This overrides the configuration at the group. (see [below for nested schema](#nestedatt--spec--nexthop_group--nexthops--bfd))
 - `resolve` (Boolean) If set to true the next-hops can be destinations which are resolved in the route table. This overrides the configuration at the group.
 
-<a id="nestedatt--spec--nexthop_group--nexthops--bfd_1"></a>
-### Nested Schema for `spec.nexthop_group.nexthops.bfd_1`
+<a id="nestedatt--spec--nexthop_group--nexthops--bfd"></a>
+### Nested Schema for `spec.nexthop_group.nexthops.bfd`
 
 Optional:
 

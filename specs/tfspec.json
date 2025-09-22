@@ -168,7 +168,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -506,7 +506,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -576,12 +576,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -661,7 +661,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -672,7 +672,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -988,7 +988,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -1100,7 +1100,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -1170,12 +1170,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -1255,7 +1255,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -1266,7 +1266,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -1685,7 +1685,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -1793,12 +1793,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -1878,7 +1878,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -1889,7 +1889,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -2254,7 +2254,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -2366,7 +2366,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -2474,12 +2474,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -2559,7 +2559,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -2570,7 +2570,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -3119,7 +3119,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -3449,7 +3449,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -3751,7 +3751,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -4012,7 +4012,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -4082,12 +4082,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -4167,7 +4167,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -4178,7 +4178,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -4267,12 +4267,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -4583,7 +4583,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -4695,7 +4695,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -4765,12 +4765,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -4850,7 +4850,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -4861,7 +4861,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -4950,12 +4950,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "l2vpnevpn",
+                                                    "name": "l2_vpn_evpn",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -5369,7 +5369,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -5477,12 +5477,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -5562,7 +5562,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -5573,7 +5573,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -5662,12 +5662,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -6034,7 +6034,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -6146,7 +6146,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -6254,12 +6254,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -6339,7 +6339,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -6350,7 +6350,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -6439,12 +6439,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "l2vpnevpn",
+                                                    "name": "l2_vpn_evpn",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -6914,7 +6914,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -6963,7 +6963,7 @@
                                     }
                                 },
                                 {
-                                    "name": "default_bgprrgroup",
+                                    "name": "default_bgp_rr_group",
                                     "string": {
                                         "computed_optional_required": "optional",
                                         "description": "Reference to a DefaultBGPGroup."
@@ -7011,12 +7011,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -7096,7 +7096,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -7107,7 +7107,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -7196,12 +7196,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -7438,14 +7438,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers",
+                                    "name": "num_route_reflector_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector client peers on the route reflector."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers_oper_down",
+                                    "name": "num_route_reflector_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector client peers on the route reflector that are operationally down."
@@ -7587,7 +7587,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -7657,12 +7657,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -7742,7 +7742,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -7753,7 +7753,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -7842,12 +7842,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -8104,14 +8104,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers",
+                                    "name": "num_route_reflector_client_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector peers on the route reflector client."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers_oper_down",
+                                    "name": "num_route_reflector_client_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector peers on the route reflector client that are operationally down."
@@ -8160,7 +8160,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -8272,7 +8272,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -8342,12 +8342,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -8427,7 +8427,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -8438,7 +8438,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -8527,12 +8527,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "l2vpnevpn",
+                                                    "name": "l2_vpn_evpn",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -8789,14 +8789,14 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_client_bgppeers",
+                                                    "name": "num_route_reflector_client_bgp_peers",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector peers on the route reflector client."
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_client_bgppeers_oper_down",
+                                                    "name": "num_route_reflector_client_bgp_peers_oper_down",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector peers on the route reflector client that are operationally down."
@@ -8855,7 +8855,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -8967,7 +8967,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -9016,7 +9016,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "default_bgprrgroup",
+                                                    "name": "default_bgp_rr_group",
                                                     "string": {
                                                         "computed_optional_required": "optional",
                                                         "description": "Reference to a DefaultBGPGroup."
@@ -9064,12 +9064,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -9149,7 +9149,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -9160,7 +9160,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -9249,12 +9249,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "l2vpnevpn",
+                                                    "name": "l2_vpn_evpn",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -9491,14 +9491,14 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_bgppeers",
+                                                    "name": "num_route_reflector_bgp_peers",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector client peers on the route reflector."
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_bgppeers_oper_down",
+                                                    "name": "num_route_reflector_bgp_peers_oper_down",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector client peers on the route reflector that are operationally down."
@@ -9820,7 +9820,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -10276,7 +10276,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -10363,7 +10363,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4client_selector",
+                                    "name": "ipv4_client_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -10373,12 +10373,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -10458,7 +10458,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -10469,7 +10469,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6client_selector",
+                                    "name": "ipv6_client_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -10479,7 +10479,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -10721,14 +10721,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers",
+                                    "name": "num_route_reflector_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector client peers on the route reflector."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers_oper_down",
+                                    "name": "num_route_reflector_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector client peers on the route reflector that are operationally down."
@@ -10870,7 +10870,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "optional",
                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -10940,7 +10940,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4route_reflector_selector",
+                                    "name": "ipv4_route_reflector_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -10950,12 +10950,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -11035,7 +11035,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -11046,7 +11046,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6route_reflector_selector",
+                                    "name": "ipv6_route_reflector_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -11056,7 +11056,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -11308,14 +11308,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers",
+                                    "name": "num_route_reflector_client_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector peers on the route reflector client."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers_oper_down",
+                                    "name": "num_route_reflector_client_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed",
                                         "description": "Total number of configured route reflector peers on the route reflector client that are operationally down."
@@ -11364,7 +11364,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -11476,7 +11476,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -11546,7 +11546,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4route_reflector_selector",
+                                                    "name": "ipv4_route_reflector_selector",
                                                     "list": {
                                                         "computed_optional_required": "optional",
                                                         "element_type": {
@@ -11556,12 +11556,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -11641,7 +11641,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -11652,7 +11652,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6route_reflector_selector",
+                                                    "name": "ipv6_route_reflector_selector",
                                                     "list": {
                                                         "computed_optional_required": "optional",
                                                         "element_type": {
@@ -11662,7 +11662,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -11914,14 +11914,14 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_client_bgppeers",
+                                                    "name": "num_route_reflector_client_bgp_peers",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector peers on the route reflector client."
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_client_bgppeers_oper_down",
+                                                    "name": "num_route_reflector_client_bgp_peers_oper_down",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector peers on the route reflector client that are operationally down."
@@ -12049,7 +12049,7 @@
                                     }
                                 },
                                 {
-                                    "name": "route_reflector_client_bgppeers",
+                                    "name": "route_reflector_client_bgp_peers",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -12091,7 +12091,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -12179,7 +12179,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "route_reflector_client_bgppeers",
+                                                    "name": "route_reflector_client_bgp_peers",
                                                     "list": {
                                                         "computed_optional_required": "optional",
                                                         "element_type": {
@@ -12231,7 +12231,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -12343,7 +12343,7 @@
                                                                             }
                                                                         },
                                                                         {
-                                                                            "name": "remove_private_asmode",
+                                                                            "name": "remove_private_as_mode",
                                                                             "string": {
                                                                                 "computed_optional_required": "optional",
                                                                                 "description": "The method by which private AS numbers are removed from the advertised AS_PATH attribute."
@@ -12430,7 +12430,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4client_selector",
+                                                    "name": "ipv4_client_selector",
                                                     "list": {
                                                         "computed_optional_required": "optional",
                                                         "element_type": {
@@ -12440,12 +12440,12 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv4unicast",
+                                                    "name": "ipv4_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
                                                             {
-                                                                "name": "advertise_ipv6next_hops",
+                                                                "name": "advertise_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -12525,7 +12525,7 @@
                                                                 }
                                                             },
                                                             {
-                                                                "name": "receive_ipv6next_hops",
+                                                                "name": "receive_ipv6_next_hops",
                                                                 "bool": {
                                                                     "computed_optional_required": "optional",
                                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -12536,7 +12536,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6client_selector",
+                                                    "name": "ipv6_client_selector",
                                                     "list": {
                                                         "computed_optional_required": "optional",
                                                         "element_type": {
@@ -12546,7 +12546,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "ipv6unicast",
+                                                    "name": "ipv6_unicast",
                                                     "single_nested": {
                                                         "computed_optional_required": "optional",
                                                         "attributes": [
@@ -12788,14 +12788,14 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_bgppeers",
+                                                    "name": "num_route_reflector_bgp_peers",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector client peers on the route reflector."
                                                     }
                                                 },
                                                 {
-                                                    "name": "num_route_reflector_bgppeers_oper_down",
+                                                    "name": "num_route_reflector_bgp_peers_oper_down",
                                                     "int64": {
                                                         "computed_optional_required": "computed",
                                                         "description": "Total number of configured route reflector client peers on the route reflector that are operationally down."
@@ -12923,7 +12923,7 @@
                                     }
                                 },
                                 {
-                                    "name": "route_reflector_bgppeers",
+                                    "name": "route_reflector_bgp_peers",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -12965,7 +12965,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -13053,7 +13053,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "name": "route_reflector_bgppeers",
+                                                    "name": "route_reflector_bgp_peers",
                                                     "list": {
                                                         "computed_optional_required": "optional",
                                                         "element_type": {
@@ -13388,7 +13388,7 @@
                         }
                     },
                     {
-                        "name": "labelselector",
+                        "name": "label_selector",
                         "string": {
                             "computed_optional_required": "computed_optional",
                             "description": "a label selector string to filter the results based on CR labels"
@@ -14135,7 +14135,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -14232,12 +14232,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -14365,7 +14365,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -14376,7 +14376,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -15004,7 +15004,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -15154,12 +15154,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -15287,7 +15287,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -15298,7 +15298,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -16399,7 +16399,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -16496,12 +16496,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -16629,7 +16629,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -16640,7 +16640,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -16777,12 +16777,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -17405,7 +17405,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -17555,12 +17555,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -17688,7 +17688,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -17699,7 +17699,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -17836,12 +17836,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -18532,7 +18532,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -18596,7 +18596,7 @@
                                     }
                                 },
                                 {
-                                    "name": "default_bgprrgroup",
+                                    "name": "default_bgp_rr_group",
                                     "string": {
                                         "computed_optional_required": "required",
                                         "description": "Reference to a DefaultBGPGroup."
@@ -18668,12 +18668,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -18801,7 +18801,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -18812,7 +18812,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -18949,12 +18949,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -19311,14 +19311,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers",
+                                    "name": "num_route_reflector_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector client peers on the route reflector."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers_oper_down",
+                                    "name": "num_route_reflector_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector client peers on the route reflector that are operationally down."
@@ -19535,7 +19535,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -19644,12 +19644,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -19777,7 +19777,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -19788,7 +19788,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -19925,12 +19925,12 @@
                                     }
                                 },
                                 {
-                                    "name": "l2vpnevpn",
+                                    "name": "l2_vpn_evpn",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of EVPN routes with IPv6 next-hops to peers."
@@ -20307,14 +20307,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers",
+                                    "name": "num_route_reflector_client_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector peers on the route reflector client."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers_oper_down",
+                                    "name": "num_route_reflector_client_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector peers on the route reflector client that are operationally down."
@@ -20863,7 +20863,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -20989,7 +20989,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4client_selector",
+                                    "name": "ipv4_client_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -20999,12 +20999,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -21132,7 +21132,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -21143,7 +21143,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6client_selector",
+                                    "name": "ipv6_client_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -21153,7 +21153,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -21515,14 +21515,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers",
+                                    "name": "num_route_reflector_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector client peers on the route reflector."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_bgppeers_oper_down",
+                                    "name": "num_route_reflector_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector client peers on the route reflector that are operationally down."
@@ -21739,7 +21739,7 @@
                                                             }
                                                         },
                                                         {
-                                                            "name": "remove_private_asmode",
+                                                            "name": "remove_private_as_mode",
                                                             "string": {
                                                                 "computed_optional_required": "computed_optional",
                                                                 "default": {
@@ -21848,7 +21848,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4route_reflector_selector",
+                                    "name": "ipv4_route_reflector_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -21858,12 +21858,12 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv4unicast",
+                                    "name": "ipv4_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
                                             {
-                                                "name": "advertise_ipv6next_hops",
+                                                "name": "advertise_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables advertisement of IPv4 Unicast routes with IPv6 next-hops to peers."
@@ -21991,7 +21991,7 @@
                                                 }
                                             },
                                             {
-                                                "name": "receive_ipv6next_hops",
+                                                "name": "receive_ipv6_next_hops",
                                                 "bool": {
                                                     "computed_optional_required": "optional",
                                                     "description": "Enables the advertisement of the RFC 5549 capability to receive IPv4 routes with IPv6 next-hops."
@@ -22002,7 +22002,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6route_reflector_selector",
+                                    "name": "ipv6_route_reflector_selector",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -22012,7 +22012,7 @@
                                     }
                                 },
                                 {
-                                    "name": "ipv6unicast",
+                                    "name": "ipv6_unicast",
                                     "single_nested": {
                                         "computed_optional_required": "optional",
                                         "attributes": [
@@ -22384,14 +22384,14 @@
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers",
+                                    "name": "num_route_reflector_client_bgp_peers",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector peers on the route reflector client."
                                     }
                                 },
                                 {
-                                    "name": "num_route_reflector_client_bgppeers_oper_down",
+                                    "name": "num_route_reflector_client_bgp_peers_oper_down",
                                     "int64": {
                                         "computed_optional_required": "computed_optional",
                                         "description": "Total number of configured route reflector peers on the route reflector client that are operationally down."
@@ -22563,7 +22563,7 @@
                                     }
                                 },
                                 {
-                                    "name": "route_reflector_client_bgppeers",
+                                    "name": "route_reflector_client_bgp_peers",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
@@ -22728,7 +22728,7 @@
                                     }
                                 },
                                 {
-                                    "name": "route_reflector_bgppeers",
+                                    "name": "route_reflector_bgp_peers",
                                     "list": {
                                         "computed_optional_required": "optional",
                                         "element_type": {
