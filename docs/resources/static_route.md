@@ -22,7 +22,9 @@ description: |-
 
 ### Optional
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `name` (String) name of the StaticRoute
 - `namespace` (String) the namespace scope in which to operate
@@ -53,6 +55,7 @@ Required:
 
 Optional:
 
+- `configured_name` (String) The name of the static route to configure on the device.
 - `nodes` (List of String) List of nodes on which to configure the static routes. An AND operation is executed against the nodes in this list and the nodes on which the Router is configured to determine the Nodes on which to configure the static routes.
 - `preference` (Number) Defines the route preference.
 
@@ -100,6 +103,25 @@ Optional:
 
 
 
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Optional:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Optional:
+
+- `count` (Number)
 
 
 <a id="nestedatt--status"></a>

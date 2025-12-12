@@ -24,6 +24,7 @@ description: |-
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
 - `label_selector` (String) a label selector string to filter the results based on CR labels
+- `labelselector` (String) Deprecated: a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -40,7 +41,9 @@ Optional:
 
 Read-Only:
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
 - `status` (Attributes) BGPGroupStatus defines the observed state of BGPGroup (see [below for nested schema](#nestedatt--items--status))
@@ -54,6 +57,7 @@ Optional:
 - `bfd` (Boolean) Enable or disable Bi-forward Forwarding Detection (BFD) with fast failover.
 - `client` (Boolean) When set to true, all configured and dynamic BGP peers are considered RR clients.
 - `cluster_id` (String) Enables route reflect client and sets the cluster ID.
+- `configured_name` (String) Configures the group name on the device.
 - `description` (String) Sets the description on the BGP group.
 - `export_policy` (List of String) Reference to a Policy CR that will be used to filter routes advertised to peers.
 - `gr_stale_route_time` (Number) Enables Graceful Restart on the peer and sets the stale route time.
@@ -205,6 +209,25 @@ Optional:
 - `keep_alive` (Number) The interval in seconds between successive keepalive messages sent to the peer.
 - `minimum_advertisement_interval` (Number) The value assigned to the MinRouteAdvertisementIntervalTimer of RFC 4271, for both EBGP and IBGP sessions.
 
+
+
+<a id="nestedatt--items--alarms"></a>
+### Nested Schema for `items.alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--items--deviations"></a>
+### Nested Schema for `items.deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--items--metadata"></a>

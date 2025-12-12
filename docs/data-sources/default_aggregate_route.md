@@ -27,7 +27,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) DefaultAggregateRouteStatus defines the observed state of DefaultAggregateRoute (see [below for nested schema](#nestedatt--status))
@@ -43,6 +45,25 @@ Optional:
 - `generate_icmp` (Boolean) When set to true the router generares ICMP unreachable messages for packets matching the aggregate route (and not a more specific route).
 - `prefixes` (List of String) List of destination prefixes for the aggregate routes.
 - `summary_only` (Boolean) When set to true the router blocks the advertisement of all contributing routes of this aggregate route in dynamic protocols such as BGP.
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>

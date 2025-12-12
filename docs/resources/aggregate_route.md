@@ -22,7 +22,9 @@ description: |-
 
 ### Optional
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `name` (String) name of the AggregateRoute
 - `namespace` (String) the namespace scope in which to operate
@@ -57,6 +59,25 @@ Optional:
 - `generate_icmp` (Boolean) When set to true the router generares ICMP unreachable messages for packets matching the aggregate route (and not a more specific route).
 - `nodes` (List of String) List of nodes on which to configure the aggregate routes. An AND operation is executed against the nodes in this list and the nodes on which the Router is configured to determine the Nodes on which to configure the aggregate routes.
 - `summary_only` (Boolean) When set to true the router blocks the advertisement of all contributing routes of this aggregate route in dynamic protocols such as BGP.
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Optional:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Optional:
+
+- `count` (Number)
 
 
 <a id="nestedatt--status"></a>

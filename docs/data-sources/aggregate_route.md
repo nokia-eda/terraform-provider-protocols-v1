@@ -27,7 +27,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) AggregateRouteStatus defines the observed state of AggregateRoute (see [below for nested schema](#nestedatt--status))
@@ -44,6 +46,25 @@ Optional:
 - `prefixes` (List of String) List of destination prefixes for the aggregate routes.
 - `router` (String) Reference to a Router on which to configure the aggregate routes.  If no Nodes are provided then the aggregate routes will be provisioned on all Nodes on which the Router is provisioned.
 - `summary_only` (Boolean) When set to true the router blocks the advertisement of all contributing routes of this aggregate route in dynamic protocols such as BGP.
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>

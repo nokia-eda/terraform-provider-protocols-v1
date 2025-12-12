@@ -37,16 +37,6 @@ data_sources:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers
       method: GET
 
-  bgp_peer_state:
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
-      method: GET
-
-  bgp_peer_state_list:
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates
-      method: GET
-
   check_default_bgp_peers:
     read:
       path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss/{name}
@@ -87,6 +77,56 @@ data_sources:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers
       method: GET
 
+  default_ospf_area:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareas/{name}
+      method: GET
+
+  default_ospf_area_deployment:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareadeployments/{name}
+      method: GET
+
+  default_ospf_area_deployment_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareadeployments
+      method: GET
+
+  default_ospf_area_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareas
+      method: GET
+
+  default_ospf_instance:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstances/{name}
+      method: GET
+
+  default_ospf_instance_deployment:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstancedeployments/{name}
+      method: GET
+
+  default_ospf_instance_deployment_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstancedeployments
+      method: GET
+
+  default_ospf_instance_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstances
+      method: GET
+
+  default_ospf_interface:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinterfaces/{name}
+      method: GET
+
+  default_ospf_interface_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinterfaces
+      method: GET
+
   default_route_reflector:
     read:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors/{name}
@@ -117,6 +157,56 @@ data_sources:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes
       method: GET
 
+  ospf_area:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareas/{name}
+      method: GET
+
+  ospf_area_deployment:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareadeployments/{name}
+      method: GET
+
+  ospf_area_deployment_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareadeployments
+      method: GET
+
+  ospf_area_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareas
+      method: GET
+
+  ospf_instance:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstances/{name}
+      method: GET
+
+  ospf_instance_deployment:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstancedeployments/{name}
+      method: GET
+
+  ospf_instance_deployment_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstancedeployments
+      method: GET
+
+  ospf_instance_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstances
+      method: GET
+
+  ospf_interface:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinterfaces/{name}
+      method: GET
+
+  ospf_interface_list:
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinterfaces
+      method: GET
+
   resource_list:
     read:
       path: /apps/protocols.eda.nokia.com/v1
@@ -137,29 +227,9 @@ data_sources:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients
       method: GET
 
-  route_reflector_client_state:
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
-      method: GET
-
-  route_reflector_client_state_list:
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates
-      method: GET
-
   route_reflector_list:
     read:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors
-      method: GET
-
-  route_reflector_state:
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
-      method: GET
-
-  route_reflector_state_list:
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates
       method: GET
 
   static_route:
@@ -220,18 +290,15 @@ resources:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeers/{name}
       method: DELETE
 
-  bgp_peer_state:
+  check_default_bgp_peers:
     create:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss
       method: POST
     read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss/{name}
       method: GET
-    update:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
-      method: PUT
     delete:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/bgppeerstates/{name}
+      path: /workflows/v1/protocols.eda.nokia.com/v1/namespaces/{namespace}/checkdefaultbgppeerss/{name}
       method: DELETE
 
   default_aggregate_route:
@@ -276,6 +343,76 @@ resources:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultbgppeers/{name}
       method: DELETE
 
+  default_ospf_area:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareas
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareas/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareas/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareas/{name}
+      method: DELETE
+
+  default_ospf_area_deployment:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareadeployments
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareadeployments/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareadeployments/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfareadeployments/{name}
+      method: DELETE
+
+  default_ospf_instance:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstances
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstances/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstances/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstances/{name}
+      method: DELETE
+
+  default_ospf_instance_deployment:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstancedeployments
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstancedeployments/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstancedeployments/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinstancedeployments/{name}
+      method: DELETE
+
+  default_ospf_interface:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinterfaces
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinterfaces/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinterfaces/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultospfinterfaces/{name}
+      method: DELETE
+
   default_route_reflector:
     create:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultroutereflectors
@@ -318,6 +455,76 @@ resources:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/defaultstaticroutes/{name}
       method: DELETE
 
+  ospf_area:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareas
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareas/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareas/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareas/{name}
+      method: DELETE
+
+  ospf_area_deployment:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareadeployments
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareadeployments/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareadeployments/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfareadeployments/{name}
+      method: DELETE
+
+  ospf_instance:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstances
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstances/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstances/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstances/{name}
+      method: DELETE
+
+  ospf_instance_deployment:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstancedeployments
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstancedeployments/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstancedeployments/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinstancedeployments/{name}
+      method: DELETE
+
+  ospf_interface:
+    create:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinterfaces
+      method: POST
+    read:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinterfaces/{name}
+      method: GET
+    update:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinterfaces/{name}
+      method: PUT
+    delete:
+      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/ospfinterfaces/{name}
+      method: DELETE
+
   route_reflector:
     create:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectors
@@ -344,34 +551,6 @@ resources:
       method: PUT
     delete:
       path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclients/{name}
-      method: DELETE
-
-  route_reflector_client_state:
-    create:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates
-      method: POST
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
-      method: GET
-    update:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
-      method: PUT
-    delete:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorclientstates/{name}
-      method: DELETE
-
-  route_reflector_state:
-    create:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates
-      method: POST
-    read:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
-      method: GET
-    update:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
-      method: PUT
-    delete:
-      path: /apps/protocols.eda.nokia.com/v1/namespaces/{namespace}/routereflectorstates/{name}
       method: DELETE
 
   static_route:

@@ -22,7 +22,9 @@ description: |-
 
 ### Optional
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `name` (String) name of the DefaultRouteReflectorClient
 - `namespace` (String) the namespace scope in which to operate
@@ -66,6 +68,7 @@ Optional:
 - `peer_as` (Attributes) The autonomous system number expected from peers. (see [below for nested schema](#nestedatt--spec--peer_as))
 - `route_reflector_ips` (List of String) List of the peering IPs on the RRs to which peering session is established.
 - `route_reflector_selector` (List of String) Label selector used to select the RouteReflectors to which the iBGP sessions are established.
+- `rtc` (Attributes) Parameters relating to the RTC SAFI. (see [below for nested schema](#nestedatt--spec--rtc))
 - `send_community_large` (Boolean) When false, all large (12 byte) BGP communities from all outbound routes advertised to the peer are stripped.
 - `send_community_standard` (Boolean) When false, all standard (4 byte) communities from all outbound routes advertised to the peer are stripped.
 - `send_default_route` (Attributes) Options for controlling the generation of default routes towards BGP peers. (see [below for nested schema](#nestedatt--spec--send_default_route))
@@ -228,6 +231,15 @@ Required:
 - `autonomous_system` (Number) Local Autonomous System number.
 
 
+<a id="nestedatt--spec--rtc"></a>
+### Nested Schema for `spec.rtc`
+
+Optional:
+
+- `advertise_default_route` (Boolean) Enables advertisement of a Default RTC Route to the BGP peers to receive all VPN routes.
+- `enabled` (Boolean) Enables the Route Target Constraints SAFI.
+
+
 <a id="nestedatt--spec--send_default_route"></a>
 ### Nested Schema for `spec.send_default_route`
 
@@ -250,6 +262,25 @@ Optional:
 - `keep_alive` (Number) The interval in seconds between successive keepalive messages sent to the peer.
 - `minimum_advertisement_interval` (Number) The value assigned to the MinRouteAdvertisementIntervalTimer of RFC 4271, for both EBGP and IBGP sessions.
 
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Optional:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Optional:
+
+- `count` (Number)
 
 
 <a id="nestedatt--status"></a>

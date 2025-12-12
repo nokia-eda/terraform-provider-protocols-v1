@@ -24,6 +24,7 @@ description: |-
 - `fields` (String) a comma-separated list of resource fields to fetch/return.  If unspecified, all fields are fetched.  If empty, only key-fields are fetched.
 - `filter` (String) an EQL "where" expression that will be used to filter the set of resources returned.
 - `label_selector` (String) a label selector string to filter the results based on CR labels
+- `labelselector` (String) Deprecated: a label selector string to filter the results based on CR labels
 
 ### Read-Only
 
@@ -40,7 +41,9 @@ Optional:
 
 Read-Only:
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--items--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--items--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--items--metadata))
 - `status` (Attributes) DefaultStaticRouteStatus defines the observed state of default static route (see [below for nested schema](#nestedatt--items--status))
@@ -50,6 +53,7 @@ Read-Only:
 
 Optional:
 
+- `configured_name` (String) The name of the static route to configure on the device.
 - `default_router` (String) Reference to a DefaultRouter on which to configure the static routes.
 - `nexthop_group` (Attributes) Group of nexthops for the list of prefixes. (see [below for nested schema](#nestedatt--items--spec--nexthop_group))
 - `preference` (Number) Defines the route preference.
@@ -96,6 +100,25 @@ Optional:
 
 
 
+
+
+<a id="nestedatt--items--alarms"></a>
+### Nested Schema for `items.alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--items--deviations"></a>
+### Nested Schema for `items.deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--items--metadata"></a>

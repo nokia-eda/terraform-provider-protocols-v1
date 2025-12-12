@@ -26,7 +26,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) CheckDefaultBgpPeersStatus defines the observed state of CheckDefaultBgpPeers (see [below for nested schema](#nestedatt--status))
@@ -39,6 +41,25 @@ Optional:
 - `node_selector` (List of String)
 - `nodes` (List of String)
 - `wait_for` (Number)
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>
@@ -57,5 +78,4 @@ Read-Only:
 
 Read-Only:
 
-- `id` (Number) Id
 - `result` (String) Aggregate result of the Flow

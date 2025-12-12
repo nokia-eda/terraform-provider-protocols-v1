@@ -22,7 +22,9 @@ description: |-
 
 ### Optional
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `name` (String) name of the BGPGroup
 - `namespace` (String) the namespace scope in which to operate
@@ -51,6 +53,7 @@ Optional:
 - `bfd` (Boolean) Enable or disable Bi-forward Forwarding Detection (BFD) with fast failover.
 - `client` (Boolean) When set to true, all configured and dynamic BGP peers are considered RR clients.
 - `cluster_id` (String) Enables route reflect client and sets the cluster ID.
+- `configured_name` (String) Configures the group name on the device.
 - `description` (String) Sets the description on the BGP group.
 - `export_policy` (List of String) Reference to a Policy CR that will be used to filter routes advertised to peers.
 - `gr_stale_route_time` (Number) Enables Graceful Restart on the peer and sets the stale route time.
@@ -208,6 +211,25 @@ Optional:
 - `keep_alive` (Number) The interval in seconds between successive keepalive messages sent to the peer.
 - `minimum_advertisement_interval` (Number) The value assigned to the MinRouteAdvertisementIntervalTimer of RFC 4271, for both EBGP and IBGP sessions.
 
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Optional:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Optional:
+
+- `count` (Number)
 
 
 <a id="nestedatt--status"></a>

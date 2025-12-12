@@ -27,7 +27,9 @@ description: |-
 
 ### Read-Only
 
+- `alarms` (Attributes) (see [below for nested schema](#nestedatt--alarms))
 - `api_version` (String)
+- `deviations` (Attributes) (see [below for nested schema](#nestedatt--deviations))
 - `kind` (String)
 - `metadata` (Attributes) (see [below for nested schema](#nestedatt--metadata))
 - `status` (Attributes) DefaultStaticRouteStatus defines the observed state of default static route (see [below for nested schema](#nestedatt--status))
@@ -37,6 +39,7 @@ description: |-
 
 Optional:
 
+- `configured_name` (String) The name of the static route to configure on the device.
 - `default_router` (String) Reference to a DefaultRouter on which to configure the static routes.
 - `nexthop_group` (Attributes) Group of nexthops for the list of prefixes. (see [below for nested schema](#nestedatt--spec--nexthop_group))
 - `preference` (Number) Defines the route preference.
@@ -83,6 +86,25 @@ Optional:
 
 
 
+
+
+<a id="nestedatt--alarms"></a>
+### Nested Schema for `alarms`
+
+Read-Only:
+
+- `critical` (Number)
+- `major` (Number)
+- `minor` (Number)
+- `warning` (Number)
+
+
+<a id="nestedatt--deviations"></a>
+### Nested Schema for `deviations`
+
+Read-Only:
+
+- `count` (Number)
 
 
 <a id="nestedatt--metadata"></a>
